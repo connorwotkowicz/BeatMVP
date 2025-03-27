@@ -26,13 +26,13 @@ PHASE 2: Authentication
 7. Store JWT token on frontend
 8. Add backend middleware to protect routes
 
-PHASE 3: Sequencer UI + Tone.js
-9. Install and integrate Tone.js
-10. Create SequencerGrid.jsx
-    - Render 4 rows (kick, snare, hat, clap) x 16 steps
-    - Toggle cells on/off
-11. Hook Tone.js to play sounds per active step
-12. Add play/pause button and tempo slider
+PHASE 3: Sequencer UI + Tone.js</br>
+9. Install and integrate Tone.js</br>
+10. Create SequencerGrid.jsx</br>
+    - Render 4 rows (kick, snare, hat, clap) x 16 steps</br>
+    - Toggle cells on/off</br>
+11. Hook Tone.js to play sounds per active step</br>
+12. Add play/pause button and tempo slider</br>
 
 PHASE 4: Save/Load Patterns
 13. Convert grid state to JSON format
@@ -72,21 +72,21 @@ created_at TIMESTAMP DEFAULT NOW()
 
 COMPONENT STRUCTURE
 
-src/
-├── components/
-│   ├── SequencerGrid.jsx
-│   ├── SoundControls.jsx
-│   ├── Navbar.jsx
-│   ├── Auth/
-│   │   ├── LoginForm.jsx
-│   │   └── RegisterForm.jsx
-├── pages/
-│   ├── Home.jsx
-│   ├── Dashboard.jsx
-│   └── PatternEditor.jsx
-├── context/
-│   └── AuthContext.jsx
-├── App.jsx
+src/</br>
+├── components/</br>
+│   ├── SequencerGrid.jsx</br>
+│   ├── SoundControls.jsx</br>
+│   ├── Navbar.jsx</br>
+│   ├── Auth/</br>
+│   │   ├── LoginForm.jsx</br>
+│   │   └── RegisterForm.jsx</br>
+├── pages/</br>
+│   ├── Home.jsx</br>
+│   ├── Dashboard.jsx</br>
+│   └── PatternEditor.jsx</br>
+├── context/</br>
+│   └── AuthContext.jsx</br>
+├── App.jsx</br>
 └── index.js
 
 ---
