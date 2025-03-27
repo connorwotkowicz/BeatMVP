@@ -29,6 +29,7 @@
     "pg-hstore": "^2.3.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-router-dom": "^7.4.0",
     "sequelize": "^6.37.6"
   },
   "description": "",
