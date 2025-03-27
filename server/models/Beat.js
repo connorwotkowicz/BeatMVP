@@ -1,3 +1,5 @@
+//TEMPLATE
+
 // server/models/Beat.js
 const db = require('../config/db');  // Import the PostgreSQL client
 
