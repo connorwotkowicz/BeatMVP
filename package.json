@@ -1,0 +1,39 @@
+{
+  "name": "beatmvp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "nodemon server/index.js",
+    "start": "node server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sandpitt-turtle/Collaborative-Beat-Sketchpad-Solo-MVP-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sandpitt-turtle/Collaborative-Beat-Sketchpad-Solo-MVP-/issues"
+  },
+  "homepage": "https://github.com/sandpitt-turtle/Collaborative-Beat-Sketchpad-Solo-MVP-#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^3.0.2",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.13.0",
+    "pg": "^8.14.1",
+    "pg-hstore": "^2.3.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sequelize": "^6.37.6"
+  },
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "sass": "^1.86.0"
+  }
+}
