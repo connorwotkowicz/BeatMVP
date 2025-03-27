@@ -1,0 +1,43 @@
+.
+├── README.md
+├── apiREADME.md
+├── client
+│   ├── README.md
+│   ├── eslint.config.js
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── public
+│   │   ├── index.html
+│   │   └── vite.svg
+│   ├── src
+│   │   ├── App.jsx
+│   │   ├── assets
+│   │   ├── components
+│   │   ├── context
+│   │   ├── main.jsx
+│   │   ├── pages
+│   │   ├── services
+│   │   └── styles
+│   └── vite.config.js
+├── package-lock.json
+├── package.json
+├── planREADME.md
+├── project-structure.txt
+└── server
+    ├── config
+    │   ├── authConfig.js
+    │   └── db.js
+    ├── controllers
+    │   ├── authController.js
+    │   └── patternController.js
+    ├── index.js
+    ├── middleware
+    │   └── authMiddleware.js
+    ├── models
+    │   ├── Beat.js
+    │   └── User.js
+    └── routes
+        ├── beatRoutes.js
+        └── userRoutes.js
+
+16 directories, 25 files
