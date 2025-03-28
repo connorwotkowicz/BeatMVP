@@ -1,64 +1,50 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
 export default function Login({ setToken, setUser }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [isMounted, setIsMounted] = useState(false);
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setError(null);
+    setError("");
 
     try {
-     
-      const response = await fetch("http://localhost:3000/api/auth/login", {
+      const loginRes = await fetch("http://localhost:3000/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
 
-      const result = await response.json();
-      console.log("Login Response:", result);
+      const loginData = await loginRes.json();
+      console.log("Login Response:", loginData);
 
-      if (!result.token) {
-        throw new Error("Invalid credentials");
-      }
+      if (!loginData.token) throw new Error("Invalid credentials");
 
-    
-      localStorage.setItem("token", result.token);
-      setToken(result.token);
+      localStorage.setItem("token", loginData.token);
+      setToken(loginData.token);
 
-
-      const userResponse = await fetch("http://localhost:3000/api/auth/me", {
+      const userRes = await fetch("http://localhost:3000/api/auth/me", {
         headers: {
-          Authorization: `Bearer ${result.token}`,
           "Content-Type": "application/json",
+          Authorization: `Bearer ${loginData.token}`,
         },
       });
 
-      const userData = await userResponse.json();
+      const userData = await userRes.json();
       if (!userData?.id) throw new Error("Failed to fetch user data");
 
-     
       localStorage.setItem("user", JSON.stringify(userData));
       setUser(userData);
 
-    
       navigate("/dashboard");
     } catch (err) {
       setError(err.message);
     }
   };
-
-  if (!isMounted) return null;
 
   return (
     <div className="login-page">
@@ -67,6 +53,7 @@ export default function Login({ setToken, setUser }) {
           MVPBeats
         </Link>
       </div>
+
       <div className="login-container">
         <div className="my-book">
           <h3>myBeats</h3>
@@ -74,7 +61,7 @@ export default function Login({ setToken, setUser }) {
 
         <div className="inner-content">
           <div className="logreg-title">
-            <h2>Enter your email to continue </h2>
+            <h2>Enter your email to continue</h2>
             {error && <p className="error-message">{error}</p>}
           </div>
 

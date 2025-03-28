@@ -16,34 +16,26 @@ export default function Register({ setToken, setUser }) {
     }
 
     try {
-      const response = await fetch("http://localhost:3000/api/auth/register", {
+      const res = await fetch("http://localhost:3000/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
 
-      const result = await response.json();
+      const data = await res.json();
 
-      if (result.success) {
-        setError(null);
-     
-        localStorage.setItem("token", result.token);
-        localStorage.setItem("user", JSON.stringify(result.user));
+      if (!data.success) throw new Error(data.message);
 
- 
-        setToken(result.token);
-        setUser(result.user);
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
 
-      
-        alert("Registration successful! You are now logged in.");
+      setToken(data.token);
+      setUser(data.user);
 
-      
-        navigate("/dashboard");
-      } else {
-        throw new Error(result.message);
-      }
-    } catch (error) {
-      setError(error.message);
+      alert("Registration successful! You are now logged in.");
+      navigate("/dashboard");
+    } catch (err) {
+      setError(err.message);
     }
   };
 
@@ -54,18 +46,24 @@ export default function Register({ setToken, setUser }) {
           MVPBeats
         </Link>
       </div>
+
       <div className="register-container">
         <div className="my-beat">
           <h3>myBeats</h3>
         </div>
+
         <div className="inner-content">
           <div className="logreg-title">
-            <h2> Register </h2>
+            <h2>Register</h2>
             {error && <p className="error-message">{error}</p>}
           </div>
+
           <div className="login-instr">
-            <h4>Enter your email and set a password to create your MVPBeats account.</h4>
+            <h4>
+              Enter your email and set a password to create your MVPBeats account.
+            </h4>
           </div>
+
           <form className="register-form" onSubmit={handleSubmit}>
             <div className="log-input-group">
               <input

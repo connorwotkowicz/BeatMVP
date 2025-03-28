@@ -29,15 +29,13 @@ function App() {
 
   return (
     <Router>
-  
       <Navigation token={token} setToken={setToken} setUser={setUser} />
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login setToken={setToken} setUser={setUser} />} />
-        <Route path="/register" element={<RegisterForm />} />
+        <Route path="/register" element={<RegisterForm setToken={setToken} setUser={setUser} />} />
 
-       
         <Route
           path="/dashboard"
           element={

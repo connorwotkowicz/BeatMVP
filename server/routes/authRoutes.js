@@ -4,7 +4,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { getUserByEmail } = require("../models/User");
+const { getUserByEmail, registerUser } = require("../models/User");
 const { authenticateToken } = require("../middleware/authMiddleware"); 
 
 router.post("/register", async (req, res) => {
@@ -12,20 +12,28 @@ router.post("/register", async (req, res) => {
   try {
     const existingUser = await getUserByEmail(email);
     if (existingUser) {
-      return res.status(400).json({ success: false, message: "User already exists." });
+      return res
+        .status(400)
+        .json({ success: false, message: "User already exists." });
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = await registerUser(email, hashedPassword); 
+    const newUser = await registerUser(email, password);
 
-    const token = jwt.sign({ id: newUser.id }, process.env.JWT_SECRET, { expiresIn: "1d" });
+    const token = jwt.sign({ id: newUser.id }, process.env.JWT_SECRET, {
+      expiresIn: "1d",
+    });
 
-    res.json({ success: true, token, user: { id: newUser.id, email: newUser.email } });
+    res.json({
+      success: true,
+      token,
+      user: { id: newUser.id, email: newUser.email },
+    });
   } catch (err) {
     console.error("Registration error:", err);
     res.status(500).json({ success: false, message: "Registration failed." });
   }
 });
+
 
 
 router.post("/login", async (req, res) => {
