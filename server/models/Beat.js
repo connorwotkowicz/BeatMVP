@@ -1,7 +1,8 @@
 //TEMPLATE
 
-// server/models/Beat.js
+
 const db = require('../config/db'); 
+const uuid = require('uuid');
 
 
 const getBeats = async () => {
@@ -13,7 +14,7 @@ const getBeats = async () => {
 const createBeat = async (title, audioUrl) => {
   const result = await db.query(
     'INSERT INTO beats (title, audio_url) VALUES ($1, $2) RETURNING *',
-    [title, audioUrl]
+    [uuid.v4(), title, audioUrl]
   );
   return result.rows[0];  
 };

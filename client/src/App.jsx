@@ -8,8 +8,8 @@ import Dashboard from "./pages/Dashboard";
 import PatternEditor from "./pages/PatternEditor";
 
 
-import LoginForm from "./components/Auth/LoginForm";
 import RegisterForm from "./components/Auth/RegisterForm";
+import Login from "./components/Auth/Login";
 
 
 import Navigation from "./components/Navigation";
@@ -21,7 +21,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<LoginForm />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/register" element={<RegisterForm />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/editor" element={<PatternEditor />} />
