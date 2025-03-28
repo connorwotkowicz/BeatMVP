@@ -1,0 +1,14 @@
+.cell {
+    width: 24px;
+    height: 24px;
+    margin: 2px;
+    border: none;
+    background-color: #222;
+    &.active {
+      background-color: #4caf50;
+    }
+    &.current-step {
+      border: 2px solid yellow;
+    }
+  }
+  
