@@ -20,7 +20,7 @@ export default function Login({ setToken, setUser }) {
 
     try {
       const response = await fetch(
-        "https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api/users/login",
+        "http://localhost:3000/api/auth/login",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -35,7 +35,7 @@ export default function Login({ setToken, setUser }) {
       setToken(result.token);
 
       const userResponse = await fetch(
-        "https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api/users/me",
+      "http://localhost:3000/api/auth/users/me",
         {
           headers: {
             Authorization: `Bearer ${result.token}`,

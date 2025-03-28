@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import API from "../services/api"; // assuming you have a centralized API file
-import SavedBeats from "../components/SavedBeats";
-
-
 
 const Dashboard = ({ user, setUser, setToken }) => {
   const [userBeats, setUserBeats] = useState([]);
-  const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -79,20 +75,20 @@ const Dashboard = ({ user, setUser, setToken }) => {
           </div>
           <div className="checked-books-container">
             <p className="check-title">Saved Patterns</p>
-            <Link
-              to="#"
-              className="view-books-btn"
-              onClick={() => setShowPopup(true)}
-            >
-              View Patterns
-            </Link>
+            {/* List saved beats here */}
+            <div className="beats-list">
+              {userBeats.length > 0 ? (
+                userBeats.map((beat) => (
+                  <div key={beat.id} className="beat-item">
+                    <p>{beat.title}</p>
+                    {/* Add any other beat details you want here */}
+                  </div>
+                ))
+              ) : (
+                <p>No saved beats found.</p>
+              )}
+            </div>
           </div>
-          {showPopup && (
-            <SavedBeats
-              userBeats={userBeats}
-              onClose={() => setShowPopup(false)}
-            />
-          )}
         </div>
 
         <Link to="#" className="logout-link" onClick={handleLogout}>
