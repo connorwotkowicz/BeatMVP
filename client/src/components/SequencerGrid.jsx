@@ -19,11 +19,12 @@ const SequencerGrid = () => {
   const repeatIdRef = useRef(null);
 
   const sounds = useRef([
-    new Tone.Player('/assets/sounds/kick.wav').toDestination(),
-    new Tone.Player('/assets/sounds/snare.wav').toDestination(),
-    new Tone.Player('/assets/sounds/closedhat.wav').toDestination(),
-    new Tone.Player('/assets/sounds/clap.wav').toDestination(),
+    new Tone.Player({ url: '/assets/sounds/kick.mp3', autostart: false }).toDestination(),
+    new Tone.Player({ url: '/assets/sounds/snare.mp3', autostart: false }).toDestination(),
+    new Tone.Player({ url: '/assets/sounds/closedhat.mp3', autostart: false }).toDestination(),
+    new Tone.Player({ url: '/assets/sounds/clap.mp3', autostart: false }).toDestination(),
   ]);
+  
   
 
   useEffect(() => {
@@ -31,10 +32,10 @@ const SequencerGrid = () => {
     console.log('Master volume set to', Tone.Destination.volume.value);
 
     const soundUrls = [
-      '/assets/sounds/kick.wav',
-      '/assets/sounds/snare.wav',
-      '/assets/sounds/closedhat.wav',
-      '/assets/sounds/clap.wav',
+      '/assets/sounds/kick.mp3',
+      '/assets/sounds/snare.mp3',
+      '/assets/sounds/closedhat.mp3',
+      '/assets/sounds/clap.mp3',
     ];
 
     sounds.current.forEach((sound, index) => {
@@ -80,7 +81,8 @@ const SequencerGrid = () => {
 
         for (let i = 0; i < rows; i++) {
           if (grid[i][step]) {
-            sounds.current[i].restart(time);
+            sounds.current[i].start(time, 0);
+
           }
         }
 
