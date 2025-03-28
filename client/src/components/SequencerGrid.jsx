@@ -61,7 +61,7 @@ const SequencerGrid = () => {
             {row.map((cell, cIdx) => (
               <button
                 key={cIdx}
-                className={cell ? 'active' : 'inactive'}
+                className={`cell ${cell ? 'active' : ''} ${cIdx === step ? 'current-step' : ''}`}
                 onClick={() => toggleCell(rIdx, cIdx)}
               >
                 ▪
