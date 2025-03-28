@@ -1,11 +1,15 @@
 //TEMPLATE
 
-
+const { verifyToken } = require("../middleware/authMiddleware");
 
 // server/routes/beatRoutes.js
 const express = require('express');
 const router = express.Router();
 const { getBeats, createBeat } = require('../models/Beat');
+
+
+
+
 
 // Get all beats
 router.get('/', async (req, res) => {
@@ -27,5 +31,7 @@ router.post('/', async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+
+
 
 module.exports = router;

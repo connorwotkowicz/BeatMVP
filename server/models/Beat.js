@@ -1,21 +1,38 @@
 //TEMPLATE
 
 // server/models/Beat.js
-const db = require('../config/db');  // Import the PostgreSQL client
+const db = require('../config/db'); 
 
-// Function to get all beats
+
 const getBeats = async () => {
   const result = await db.query('SELECT * FROM beats');
-  return result.rows;  // Return the rows (results)
+  return result.rows;  
 };
 
-// Function to create a new beat
+
 const createBeat = async (title, audioUrl) => {
   const result = await db.query(
     'INSERT INTO beats (title, audio_url) VALUES ($1, $2) RETURNING *',
     [title, audioUrl]
   );
-  return result.rows[0];  // Return the created beat
+  return result.rows[0];  
 };
 
-module.exports = { getBeats, createBeat };
+
+const savePattern = async (userId, patternName, patternData) => {
+  const result = await db.query(
+    "INSERT INTO patterns (user_id, name, data) VALUES ($1, $2, $3) RETURNING *",
+    [userId, patternName, patternData]
+  );
+  return result.rows[0]; 
+};
+
+const getPatternsByUserId = async (userId) => {
+  const result = await db.query(
+    "SELECT * FROM patterns WHERE user_id = $1 ORDER BY created_at DESC",
+    [userId]
+  );
+  return result.rows; 
+};
+
+module.exports = { getBeats, createBeat, savePattern, getPatternsByUserId };
