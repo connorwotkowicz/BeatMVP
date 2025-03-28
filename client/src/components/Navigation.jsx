@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Navigation = () => {
   return (
-    <nav style={{ padding: "1rem", backgroundColor: "#eee", marginBottom: "1rem" }}>
+    <nav>
       <Link to="/">Home</Link> |{" "}
       <Link to="/login">Login</Link> |{" "}
       <Link to="/register">Register</Link> |{" "}

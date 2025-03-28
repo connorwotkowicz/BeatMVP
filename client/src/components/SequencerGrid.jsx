@@ -4,6 +4,7 @@
 
 
 import React, { useState, useEffect } from 'react';
+import API from '../services/api';
 import * as Tone from 'tone';
 
 const sounds = [
