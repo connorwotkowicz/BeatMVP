@@ -24,8 +24,6 @@ const SequencerGrid = () => {
     new Tone.Player({ url: '/assets/sounds/closedhat.mp3', autostart: false }).toDestination(),
     new Tone.Player({ url: '/assets/sounds/clap.mp3', autostart: false }).toDestination(),
   ]);
-  
-  
 
   useEffect(() => {
     Tone.Destination.volume.value = 0;
@@ -57,6 +55,13 @@ const SequencerGrid = () => {
     setGrid(newGrid);
   };
 
+  const clearGrid = () => {
+    const emptyGrid = Array(rows)
+      .fill()
+      .map(() => Array(cols).fill(false));
+    setGrid(emptyGrid);
+  };
+
   const startTransport = async () => {
     await Tone.start();
     console.log('Audio context state:', Tone.context.state);
@@ -82,15 +87,14 @@ const SequencerGrid = () => {
         for (let i = 0; i < rows; i++) {
           if (grid[i][step]) {
             sounds.current[i].start(time, 0);
-
           }
         }
 
         currentStepRef.current = (step + 1) % cols;
 
-        requestAnimationFrame(() => {
+        Tone.Draw.schedule(() => {
           setVisualStep(currentStepRef.current);
-        });
+        }, time);
       }, '16n');
 
       Tone.Transport.start();
@@ -123,15 +127,16 @@ const SequencerGrid = () => {
           </div>
         ))}
       </div>
-  
+
       <SoundControls
         tempo={tempo}
         setTempo={setTempo}
         isPlaying={isPlaying}
         onPlayToggle={isPlaying ? stopTransport : startTransport}
       />
-  
-    
+
+      <button onClick={clearGrid}>🧼 Clear Grid</button>
+
       <button
         onClick={async () => {
           await Tone.start();
@@ -143,7 +148,6 @@ const SequencerGrid = () => {
       </button>
     </div>
   );
-  
 };
 
 export default SequencerGrid;
