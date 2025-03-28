@@ -1,4 +1,4 @@
-// server/controllers/patternController.js
+
 const BeatModel = require("../models/Beat");
 
 const savePattern = async (req, res) => {

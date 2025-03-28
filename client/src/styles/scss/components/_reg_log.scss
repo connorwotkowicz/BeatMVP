@@ -1,0 +1,45 @@
+.login-page,
+.register-page {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  min-height: 100vh; 
+  padding-top: 40px; 
+}
+
+
+.login-container,
+.register-container {
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 50px 72px;
+  width: 580px;
+  max-width: 90%;
+  transform: translateY(50px);
+  animation: fade_slide 0.7s ease-out 0.2s forwards;
+}
+
+.login-container input,
+.register-container input {
+  width: 100%;
+  padding: 14px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: #f8f8f8;
+  color: #333;
+  margin-bottom: 16px;
+  outline: none;
+}
+
+.login-container input::placeholder,
+.register-container input::placeholder {
+  color: #888;
+}

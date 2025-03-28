@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function Register({ setToken, setUser }) {
   const [email, setEmail] = useState("");
@@ -26,12 +26,18 @@ export default function Register({ setToken, setUser }) {
 
       if (result.success) {
         setError(null);
+     
         localStorage.setItem("token", result.token);
         localStorage.setItem("user", JSON.stringify(result.user));
+
+ 
         setToken(result.token);
         setUser(result.user);
+
+      
         alert("Registration successful! You are now logged in.");
 
+      
         navigate("/dashboard");
       } else {
         throw new Error(result.message);
@@ -44,7 +50,7 @@ export default function Register({ setToken, setUser }) {
   return (
     <div className="register-page">
       <div className="logo-wrapper">
-        <Link to="/sequencer-grid" className="lognav-logo">
+        <Link to="/" className="lognav-logo">
           MVPBeats
         </Link>
       </div>

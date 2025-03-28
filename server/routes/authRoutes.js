@@ -1,10 +1,12 @@
+
+
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { getUserByEmail, registerUser } = require("../models/User");
+const { getUserByEmail } = require("../models/User");
+const { authenticateToken } = require("../middleware/authMiddleware"); 
 
-// Register Route
 router.post("/register", async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -14,18 +16,18 @@ router.post("/register", async (req, res) => {
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = await registerUser(email, hashedPassword); // ✅ Fixed here
+    const newUser = await registerUser(email, hashedPassword); 
 
     const token = jwt.sign({ id: newUser.id }, process.env.JWT_SECRET, { expiresIn: "1d" });
 
     res.json({ success: true, token, user: { id: newUser.id, email: newUser.email } });
   } catch (err) {
-    console.error("🔥 Registration error:", err);
+    console.error("Registration error:", err);
     res.status(500).json({ success: false, message: "Registration failed." });
   }
 });
 
-// Login Route
+
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -39,11 +41,27 @@ router.post("/login", async (req, res) => {
       return res.status(401).json({ success: false, message: "Invalid credentials." });
     }
 
-    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: "1d" });
-
+    const token = jwt.sign({ id: user.id, email: user.email }, process.env.JWT_SECRET, { expiresIn: "1d" });
+    console.log('Generated Token:', token); 
     res.json({ success: true, token, user: { id: user.id, email: user.email } });
   } catch (err) {
     res.status(500).json({ success: false, message: "Login failed." });
+  }
+});
+
+
+router.get("/me", authenticateToken, async (req, res) => {
+  try {
+ 
+    const user = await getUserByEmail(req.user.email); 
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found." });
+    }
+
+    res.json(user); 
+  } catch (err) {
+    res.status(500).json({ message: "Failed to fetch user data." });
   }
 });
 

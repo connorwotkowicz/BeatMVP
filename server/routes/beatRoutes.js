@@ -2,7 +2,6 @@
 
 const { verifyToken } = require("../middleware/authMiddleware");
 
-// server/routes/beatRoutes.js
 const express = require('express');
 const router = express.Router();
 const { getBeats, createBeat } = require('../models/Beat');
@@ -11,7 +10,7 @@ const { getBeats, createBeat } = require('../models/Beat');
 
 
 
-// Get all beats
+
 router.get('/', async (req, res) => {
   try {
     const beats = await getBeats();
@@ -21,7 +20,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Create a new beat
+
 router.post('/', async (req, res) => {
   const { title, audioUrl } = req.body;
   try {

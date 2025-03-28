@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import API from "../services/api"; // assuming you have a centralized API file
+import API from "../services/api"; 
 
 const Dashboard = ({ user, setUser, setToken }) => {
   const [userBeats, setUserBeats] = useState([]);
@@ -75,13 +75,13 @@ const Dashboard = ({ user, setUser, setToken }) => {
           </div>
           <div className="checked-books-container">
             <p className="check-title">Saved Patterns</p>
-            {/* List saved beats here */}
+        
             <div className="beats-list">
               {userBeats.length > 0 ? (
                 userBeats.map((beat) => (
                   <div key={beat.id} className="beat-item">
                     <p>{beat.title}</p>
-                    {/* Add any other beat details you want here */}
+               
                   </div>
                 ))
               ) : (

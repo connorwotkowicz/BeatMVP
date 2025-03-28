@@ -1,24 +1,24 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const Navigation = ({ user, setUser, setToken }) => {
+const Navigation = ({ token, setUser, setToken }) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     setUser(null);
-    setToken("");
+    setToken(null);
     navigate("/");
   };
 
   return (
     <nav>
       <Link to="/">Home</Link> |{" "}
-      {!user ? (
+      {!token ? (
         <>
           <Link to="/login">Login</Link> |{" "}
-          <Link to="/register">Register</Link> |{" "}
+          <Link to="/register">Register</Link>
         </>
       ) : (
         <>

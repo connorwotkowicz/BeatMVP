@@ -13,8 +13,8 @@ import Navigation from "./components/Navigation";
 function App() {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  // Checking for token when the app mounts
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
     const storedUser = localStorage.getItem("user");
@@ -22,25 +22,37 @@ function App() {
       setToken(storedToken);
       setUser(JSON.parse(storedUser));
     }
+    setLoading(false);
   }, []);
+
+  if (loading) return null;
 
   return (
     <Router>
-      <Navigation />
+  
+      <Navigation token={token} setToken={setToken} setUser={setUser} />
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login setToken={setToken} setUser={setUser} />} />
         <Route path="/register" element={<RegisterForm />} />
-        
-        {/* Protected Routes */}
+
+       
         <Route
           path="/dashboard"
-          element={user ? <Dashboard user={user} setUser={setUser} setToken={setToken} /> : <Navigate to="/login" />}
+          element={
+            token ? (
+              <Dashboard user={user} setUser={setUser} setToken={setToken} />
+            ) : (
+              <Navigate to="/login" replace />
+            )
+          }
         />
         <Route
           path="/editor"
-          element={user ? <PatternEditor user={user} /> : <Navigate to="/login" />}
+          element={
+            token ? <PatternEditor user={user} /> : <Navigate to="/login" replace />
+          }
         />
       </Routes>
     </Router>

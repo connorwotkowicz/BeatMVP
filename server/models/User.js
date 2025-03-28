@@ -1,6 +1,7 @@
+const bcrypt = require("bcrypt");
 const db = require('../config/db');
 
-// Get user by email
+
 const getUserByEmail = async (email) => {
   const result = await db.query(
     "SELECT * FROM users WHERE email = $1",
@@ -9,8 +10,11 @@ const getUserByEmail = async (email) => {
   return result.rows[0];
 };
 
-// Register a new user
-const registerUser = async (email, hashedPassword) => {
+
+const registerUser = async (email, password) => {
+ 
+  const hashedPassword = await bcrypt.hash(password, 10);
+
   const result = await db.query(
     "INSERT INTO users (email, password) VALUES ($1, $2) RETURNING id, email",
     [email, hashedPassword]

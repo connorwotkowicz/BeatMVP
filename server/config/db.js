@@ -1,4 +1,4 @@
-// server/config/db.js (Direct client connection)
+
 const { Client } = require('pg');
 
 const client = new Client({

@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const db = require('../config/db'); // This should be your Pool or Client
+const db = require('../config/db'); 
 
 const initDb = async () => {
   const schemaPath = path.join(__dirname, '../db/schema.sql');
@@ -8,11 +8,11 @@ const initDb = async () => {
 
   try {
     await db.query(schema);
-    console.log('✅ Database schema initialized!');
+    console.log('Database schema initialized!');
   } catch (error) {
-    console.error('❌ Error initializing database:', error);
+    console.error('Error initializing database:', error);
   } finally {
-    db.end(); // Always close DB connection
+    db.end(); 
   }
 };
 

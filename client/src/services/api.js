@@ -1,33 +1,28 @@
 import axios from 'axios';
 
-// Create an axios instance
 const API = axios.create({
-  baseURL: 'http://localhost:3000/api', // Backend API URL
-  withCredentials: true, // Enables credentials (cookies, etc.) to be sent along with requests
+  baseURL: 'http://localhost:3000/api',
+  // withCredentials: true, <-- REMOVE THIS LINE
 });
 
-// Request interceptor to add the Authorization header with the JWT token
 API.interceptors.request.use((config) => {
-  const token = localStorage.getItem('token'); // Get token from localStorage
+  const token = localStorage.getItem('token'); 
   if (token) {
-    config.headers.Authorization = `Bearer ${token}`; // Attach the token to headers if available
+    config.headers.Authorization = `Bearer ${token}`; 
   }
-  return config; // Proceed with the request
+  return config; 
 });
 
-// Response interceptor to handle errors globally if needed
 API.interceptors.response.use(
-  (response) => response, // If the response is successful, return the response
+  (response) => response, 
   (error) => {
     if (error.response && error.response.status === 401) {
-      // Handle unauthorized error (e.g., token expired or not present)
-      localStorage.removeItem('token');
-      localStorage.removeItem('user');
-      // Optionally redirect to login page if not authenticated
-      window.location.href = '/login'; 
+      // localStorage.removeItem('token');
+      // localStorage.removeItem('user');
+      // window.location.href = '/login'; 
     }
-    return Promise.reject(error); // Reject any other errors
+    return Promise.reject(error); 
   }
 );
 
-export default API; // Export API instance
+export default API;
