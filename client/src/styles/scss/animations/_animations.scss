@@ -1,0 +1,79 @@
+@keyframes slide_up {
+    from {
+        transform: translateY(60px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes disney_fade_slide {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes disney_fade_inner {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes double_flash {
+    0% {
+        color: transparent;
+        background: linear-gradient(90deg, #ff3cac, #784ba0, #2b86c5);
+        background-clip: text;
+        -webkit-background-clip: text;
+        background-position: -120% 0;
+    }
+    40% {
+        background-position: 100% 0;
+    }
+    70% {
+        background-position: -80% 0;
+    }
+    90% {
+        background-position: 0% 0;
+    }
+    100% {
+        color: white;
+        background: none;
+    }
+}
+
+@keyframes shiny-wipe {
+    0% {
+        left: -150%;
+        opacity: 1;
+    }
+    50% {
+        left: 100%;
+        opacity: 1;
+    }
+    100% {
+        left: 100%;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
