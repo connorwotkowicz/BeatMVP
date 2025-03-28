@@ -1,8 +1,3 @@
-
-
-// SEQUENCERGRID.JSX TEMPLATE (STARTER)
-
-
 import React, { useState, useEffect } from 'react';
 import API from '../services/api';
 import * as Tone from 'tone';
@@ -22,17 +17,32 @@ const SequencerGrid = () => {
   );
   const [step, setStep] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [tempo, setTempo] = useState(120);
 
   useEffect(() => {
-    Tone.Transport.scheduleRepeat((time) => {
-      for (let i = 0; i < rows; i++) {
-        if (grid[i][step]) {
-          sounds[i].start(time);
+    const repeat = (time) => {
+      setStep((prevStep) => {
+        const nextStep = (prevStep + 1) % cols;
+        for (let i = 0; i < rows; i++) {
+          if (grid[i][prevStep]) {
+            sounds[i].start(time);
+          }
         }
-      }
-      setStep((prev) => (prev + 1) % cols);
-    }, '16n');
-  }, [grid, step]);
+        return nextStep;
+      });
+    };
+
+    if (isPlaying) {
+      Tone.Transport.bpm.value = tempo;
+      Tone.Transport.scheduleRepeat(repeat, '16n');
+      Tone.Transport.start();
+    }
+
+    return () => {
+      Tone.Transport.cancel(); // stop all scheduled events
+      Tone.Transport.stop();
+    };
+  }, [isPlaying, grid, tempo]);
 
   const toggleCell = (r, c) => {
     const newGrid = grid.map((row, rowIndex) =>
@@ -43,18 +53,16 @@ const SequencerGrid = () => {
 
   const startTransport = async () => {
     await Tone.start();
-    Tone.Transport.start();
     setIsPlaying(true);
   };
 
   const stopTransport = () => {
-    Tone.Transport.stop();
     setIsPlaying(false);
     setStep(0);
   };
 
   return (
-    <div>
+    <div className="sequencer-container">
       <div className="grid">
         {grid.map((row, rIdx) => (
           <div key={rIdx} className="row">
@@ -70,6 +78,19 @@ const SequencerGrid = () => {
           </div>
         ))}
       </div>
+
+      <div className="tempo-control">
+        <label htmlFor="tempo">Tempo: {tempo} BPM</label>
+        <input
+          type="range"
+          id="tempo"
+          min="60"
+          max="200"
+          value={tempo}
+          onChange={(e) => setTempo(Number(e.target.value))}
+        />
+      </div>
+
       <button onClick={isPlaying ? stopTransport : startTransport}>
         {isPlaying ? 'Stop' : 'Play'}
       </button>

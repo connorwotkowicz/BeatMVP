@@ -1,14 +1,52 @@
-.cell {
+.sequencer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .row {
+    display: flex;
+  }
+  
+  .cell {
     width: 24px;
     height: 24px;
     margin: 2px;
     border: none;
     background-color: #222;
+  
     &.active {
       background-color: #4caf50;
     }
+  
     &.current-step {
       border: 2px solid yellow;
+    }
+  }
+  
+  .tempo-control {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    label {
+      margin-bottom: 0.5rem;
+      color: white;
+    }
+  
+    input[type="range"] {
+      width: 40vh;
     }
   }
   
