@@ -50,3 +50,22 @@
     }
   }
   
+
+  .row-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+  }
+  
+  .row-label {
+    width: 60px;
+    text-align: right;
+    margin-right: 8px;
+    font-weight: bold;
+    font-family: monospace;
+  }
+  
+  .row {
+    display: flex;
+  }
+  

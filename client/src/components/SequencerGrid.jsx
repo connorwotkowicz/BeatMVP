@@ -25,6 +25,8 @@ const SequencerGrid = () => {
     new Tone.Player({ url: '/assets/sounds/clap.mp3', autostart: false }).toDestination(),
   ]);
 
+  const soundNames = ['Kick', 'Snare', 'Hi-Hat', 'Clap']; 
+
   useEffect(() => {
     Tone.Destination.volume.value = 0;
     console.log('Master volume set to', Tone.Destination.volume.value);
@@ -114,16 +116,19 @@ const SequencerGrid = () => {
     <div className="sequencer-container">
       <div className="grid">
         {grid.map((row, rIdx) => (
-          <div key={rIdx} className="row">
-            {row.map((cell, cIdx) => (
-              <button
-                key={cIdx}
-                className={`cell ${cell ? 'active' : ''} ${cIdx === visualStep ? 'current-step' : ''}`}
-                onClick={() => toggleCell(rIdx, cIdx)}
-              >
-                ▪
-              </button>
-            ))}
+          <div key={rIdx} className="row-wrapper">
+            <div className="row-label">{soundNames[rIdx]}</div>
+            <div className="row">
+              {row.map((cell, cIdx) => (
+                <button
+                  key={cIdx}
+                  className={`cell ${cell ? 'active' : ''} ${cIdx === visualStep ? 'current-step' : ''}`}
+                  onClick={() => toggleCell(rIdx, cIdx)}
+                >
+                  ▪
+                </button>
+              ))}
+            </div>
           </div>
         ))}
       </div>

@@ -1,4 +1,7 @@
 @use "./base/global";
+@use "./base/variables";
+@use "./components/dash";
 @use "./components/sequencer_grid";
 @use "./components/reg_log";
 @use "./animations/animations";
+@use "./components/nav";

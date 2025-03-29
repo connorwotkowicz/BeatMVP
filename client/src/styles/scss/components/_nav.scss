@@ -1,0 +1,25 @@
+.navbar {
+    background: rgb(0 0 0 / 80%);
+  
+    backdrop-filter: blur(10px);
+  
+    height: 64px;
+  
+    display: flex;
+  
+    justify-content: center;
+  
+    position: fixed;
+  
+    width: 100%;
+  
+    top: 0;
+  
+    z-index: 100;
+  
+    padding: 0 32px;
+  
+    overflow-x: hidden;
+  
+    text-decoration: none;
+  }

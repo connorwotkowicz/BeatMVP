@@ -1,8 +1,10 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useTheme } from "../context/ThemeContext";
 
 const Navigation = ({ token, setUser, setToken }) => {
   const navigate = useNavigate();
+  const { theme, toggleTheme } = useTheme(); 
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -13,7 +15,7 @@ const Navigation = ({ token, setUser, setToken }) => {
   };
 
   return (
-    <nav>
+    <nav className="navbar">
       <Link to="/">Home</Link> |{" "}
       {!token ? (
         <>
@@ -27,6 +29,10 @@ const Navigation = ({ token, setUser, setToken }) => {
           <button onClick={handleLogout}>Logout</button>
         </>
       )}
+      {" | "}
+      <button onClick={toggleTheme}>
+        Switch to {theme === "light" ? "Dark" : "Light"} Mode
+      </button>
     </nav>
   );
 };

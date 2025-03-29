@@ -1,45 +1,73 @@
+/* Page wrapper for Login/Register */
 .login-page,
 .register-page {
   display: flex;
-  justify-content: center; 
-  align-items: center; 
-  min-height: 100vh; 
-  padding-top: 40px; 
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 40px;
+  background-color: var(--bg-color);
+  background: linear-gradient(135deg, #dfe9f3 0%, #ffffff 100%);
+  color: var(--text-color);
+  background-size: cover;
+  background-position: center;
 }
 
-
+/* Login/Register container - Glassmorphism enhanced */
 .login-container,
 .register-container {
   opacity: 0;
   display: flex;
   flex-direction: column;
-  background-color: rgba(0, 0, 0, 0.4);
-  border-radius: 12px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  background: var(--card-bg); /* semi-transparent from theme */
+  border-radius: 8px;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 50px 72px;
-  width: 580px;
+  padding: 40px 60px;
+  width: 520px;
   max-width: 90%;
-  transform: translateY(50px);
-  animation: fade_slide 0.7s ease-out 0.2s forwards;
+  transform: translateY(40px);
+  animation: fade_slide 0.6s ease-out 0.2s forwards;
+  transition: all 0.3s ease-in-out;
 }
 
+
+
+
+/* Input fields */
 .login-container input,
 .register-container input {
   width: 100%;
-  padding: 14px;
+  padding: 12px;
   font-size: 1rem;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  background: #f8f8f8;
-  color: #333;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--text-color);
   margin-bottom: 16px;
   outline: none;
+  transition: border 0.2s ease, background 0.2s ease;
 }
 
+.login-container input:focus,
+.register-container input:focus {
+  border-color: var(--primary-accent);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Placeholder styling */
 .login-container input::placeholder,
 .register-container input::placeholder {
-  color: #888;
+  color: var(--text-color);
+  opacity: 0.6;
+}
+
+/* Fade-in animation */
+@keyframes fade_slide {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

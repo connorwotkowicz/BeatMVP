@@ -50,7 +50,7 @@ export default function Login({ setToken, setUser }) {
     <div className="login-page">
       <div className="logo-wrapper">
         <Link to="/books" className="lognav-logo">
-          MVPBeats
+          BeatMVP
         </Link>
       </div>
 
@@ -67,7 +67,7 @@ export default function Login({ setToken, setUser }) {
 
           <div className="login-instr">
             <h4>
-              Log in to MVPBeats with your email. If you don't have an account,
+              Log in to BeatMVP with your email. If you don't have an account,
               click the link below to create one.
             </h4>
           </div>
@@ -96,7 +96,7 @@ export default function Login({ setToken, setUser }) {
         </div>
 
         <div className="login-instr">
-          <h4>New to MVPBeats?</h4>
+          <h4>New to BeatMVP?</h4>
           <div className="sign-up-link">
             <Link to="/register">
               <h4>Sign up</h4>

@@ -43,7 +43,7 @@ export default function Register({ setToken, setUser }) {
     <div className="register-page">
       <div className="logo-wrapper">
         <Link to="/" className="lognav-logo">
-          MVPBeats
+          BeatMVP
         </Link>
       </div>
 
@@ -60,7 +60,7 @@ export default function Register({ setToken, setUser }) {
 
           <div className="login-instr">
             <h4>
-              Enter your email and set a password to create your MVPBeats account.
+              Enter your email and set a password to create your BeatMVP account.
             </h4>
           </div>
 
