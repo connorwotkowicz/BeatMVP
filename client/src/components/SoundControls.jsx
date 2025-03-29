@@ -5,7 +5,12 @@ const SoundControls = ({ tempo, setTempo, isPlaying, onPlayToggle }) => {
     <div className="sound-controls">
       <h2>🎛️ Sound Controls</h2>
 
-      {/* Tempo control */}
+      <div className = "volume-control">
+        <label htmlFor="volume">Volume</label>
+        type="range"
+        
+      </div>
+
       <div className="tempo-control">
         <label htmlFor="tempo">Tempo: {tempo} BPM</label>
         <input
@@ -18,7 +23,6 @@ const SoundControls = ({ tempo, setTempo, isPlaying, onPlayToggle }) => {
         />
       </div>
 
-      {/* Play/Stop control */}
       <button onClick={onPlayToggle}>
         {isPlaying ? 'Stop' : 'Play'}
       </button>
