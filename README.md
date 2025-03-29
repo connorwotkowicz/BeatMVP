@@ -59,6 +59,10 @@ Create a collaborative beat sequencer using React, Tone.js, PostgreSQL, and CSS 
 - Set up Tone.js players for each sound.
 - Implement the grid toggle functionality to turn sounds on/off for each step.
 
+#### Patterns and Beats:
+- Allow users to choose different sound samples (e.g. Kick, Hat, Crash, Cowbell).
+- Enable users to save their custom beat patterns to their profile for later playback and editing.
+
 ---
 
 ### 3️⃣ **Collaborative Features (Future Optional Enhancement)**
