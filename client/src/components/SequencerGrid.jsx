@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import SoundControls from './SoundControls';
 import * as Tone from 'tone';
 
+
 const SequencerGrid = ({ pattern, onPatternChange }) => {
   const rows = 4;
   const cols = 16;
@@ -15,6 +16,9 @@ const SequencerGrid = ({ pattern, onPatternChange }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [tempo, setTempo] = useState(120);
   const repeatIdRef = useRef(null);
+  const [volume, setVolume] = useState(0.5);
+  const [isMuted, setIsMuted] = useState(false);
+
 
   const sounds = useRef([
     new Tone.Player({ url: '/assets/sounds/kick.mp3', autostart: false }).toDestination(),
@@ -110,6 +114,17 @@ const SequencerGrid = ({ pattern, onPatternChange }) => {
     Tone.Transport.bpm.value = tempo;
   }, [tempo]);
 
+useEffect(() => {
+  if (isMuted || volume === 0) {
+    Tone.Destination.volume.value = -Infinity;
+  } else {
+
+    Tone.Destination.volume.value = Tone.gainToDb(volume);
+  }
+}, [volume, isMuted]);
+
+
+
   return (
     <div className="sequencer-container">
       <div className="grid">
@@ -133,16 +148,20 @@ const SequencerGrid = ({ pattern, onPatternChange }) => {
         ))}
       </div>
 
-      <SoundControls
-        tempo={tempo}
-        setTempo={setTempo}
-        isPlaying={isPlaying}
-        onPlayToggle={isPlaying ? stopTransport : startTransport}
-      />
+   <SoundControls
+  tempo={tempo}
+  setTempo={setTempo}
+  isPlaying={isPlaying}
+  onPlayToggle={isPlaying ? stopTransport : startTransport}
+  volume={volume}
+  setVolume={setVolume}
+  isMuted={isMuted}
+  setIsMuted={setIsMuted}
+/>
 
-      <button onClick={clearGrid}>Clear Grid</button>
+      <button className="clear-button" onClick={clearGrid}>Clear Grid</button>
 
-      <button
+      <button className="play-synth-button"
         onClick={async () => {
           await Tone.start();
           const synth = new Tone.Synth().toDestination();

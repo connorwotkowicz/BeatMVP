@@ -33,7 +33,7 @@
     display: flex;
     align-items: center;
   }
-
+ 
   .nav-left {
     gap: 8px;
     padding-left: 0;
@@ -41,10 +41,10 @@
   }
 
   .lognav-logo {
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 18px;
+    font-weight: 500;
     letter-spacing: 2px;
-    background: linear-gradient(90deg, #ffd700, #ffa500);
+    background: white;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -85,26 +85,27 @@
     }
   }
 
-
   a,
   button {
-    color: white;
-    font-weight: 400;
-    font-size: 15px;
+    color: rgb(226, 226, 226);
+    font-weight: 300;
+    font-size: 14px;
     padding: 8px 12px;
     background: transparent;
     border: none;
     cursor: pointer;
     text-decoration: none;
-    transition: color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    transition:
+      color 0.3s ease,
+      background-color 0.3s ease,
+      box-shadow 0.3s ease;
 
     &:hover,
     &:focus {
-      color: #ffd700;
+      color: #ffffff;
       outline: none;
     }
   }
-
 
   @media (max-width: 768px) {
     .nav-left,
@@ -141,6 +142,7 @@
   }
 
   &:hover {
-    transform: scale(1.1);
+    color: #ffffff;
+    outline: none;
   }
 }

@@ -1,13 +1,27 @@
 .dashboard-page {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   min-height: 100vh;
   background-color: var(--bg-color);
   background: var(--card-bg);
   background-size: cover;
   background-position: center;
   color: var(--text-color);
+  padding-top: 40px;
+  padding-left: 15px
 }
+
+.dashboard-title {
+  font-size: 1.1rem;
+  border-radius: 4px;
+  border-bottom: 1px solid var(--text-color);
+  align-items: center;
+  font-weight: 400;
+
+
+}
+
+
 
 .account-container {
   width: 100%;
@@ -21,29 +35,34 @@
   font-weight: 400;
   margin-bottom: 2rem;
   color: var(--text-color);
-  text-align: center;
+  text-align: left;
+}
+
+.sub-title {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-color)
 }
 
 .account-section {
-  background: white;
-  border-radius: 6px;
-  box-shadow: 0 1px 2px var(--shadow-color);
+
   padding: 1.5rem;
   margin-bottom: 2rem;
   transition: 0.3s ease;
 }
 
-.section-header {
-  font-size: 1.2rem;
-  font-weight: 500;
+.section-header h3 {
+  font-size: 1.3rem;
+  font-weight: 400;
   margin-bottom: 1rem;
-  color: black;
+  color: var(--text-color)
 }
 
-.user-info {
+.user-info, .info-cont {
   p {
     font-size: 0.9rem;
-    color: #111;
+
+    color: var(--text-color);
     margin: 0.25rem 0;
   }
 }
@@ -75,20 +94,13 @@
 
 .account-link-buddy {
   display: block;
-  text-align: center;
+  text-align: left;
   padding-top: 1rem;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.checked-books-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #f9f9f9;
-  border-radius: 6px;
-  padding: 1rem;
-  margin-top: 1rem;
-}
+
+
 
 .check-title {
   font-size: 1rem;

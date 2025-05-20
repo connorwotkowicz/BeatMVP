@@ -4,16 +4,13 @@ import SequencerGrid from "../components/SequencerGrid";
 import API from "../services/api";
 
 const PatternEditor = () => {
-  const { beatId } = useParams(); // For editing existing beat, if any
+  const { beatId } = useParams();
 
   const [title, setTitle] = useState("");
-  const [pattern, setPattern] = useState(
-    Array(4).fill().map(() => Array(16).fill(false))
-  );
+  const [pattern, setPattern] = useState(Array(4).fill().map(() => Array(16).fill(false)));
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
-  // Load existing beat if editing
   useEffect(() => {
     if (beatId) {
       setLoading(true);
@@ -23,7 +20,7 @@ const PatternEditor = () => {
           setPattern(res.data.beat.data);
           setMessage("");
         })
-        .catch(() => setMessage("Failed to load beat"))
+        .catch(() => setMessage("Failed to load beat."))
         .finally(() => setLoading(false));
     }
   }, [beatId]);
@@ -37,39 +34,40 @@ const PatternEditor = () => {
     try {
       const payload = { title, data: pattern };
       if (beatId) {
-      
         await API.put(`/beats/${beatId}`, payload);
-        setMessage("Beat updated successfully!");
+        setMessage("Beat updated");
       } else {
         await API.post("/beats", payload);
-        setMessage("Beat saved successfully!");
+        setMessage("Beat saved");
       }
     } catch {
       setMessage("Failed to save beat.");
     }
   };
 
-  if (loading) return <p>Loading beat...</p>;
+  if (loading) return <p className="loading-message">Loading beat...</p>;
 
   return (
-    <div className="pattern-editor-container">
-      <h1>🎛️ Pattern Editor</h1>
+    <div className="pattern-editor">
+      <div className="editor-card">
+        <h1>Editor</h1>
 
-      <input
-        type="text"
-        placeholder="Enter beat title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        className="beat-title-input"
-      />
+        <input
+          type="text"
+          placeholder="Title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          className="title-input"
+        />
+<div className="grid-container">
+        <SequencerGrid pattern={pattern} onPatternChange={setPattern} />
+</div>
+        <button onClick={handleSave} className="save-button">
+          Save
+        </button>
 
-      <SequencerGrid pattern={pattern} onPatternChange={setPattern} />
-
-      <button onClick={handleSave} className="save-beat-button">
-        Save Beat
-      </button>
-
-      {message && <p className="message">{message}</p>}
+        {message && <p className="editor-message">{message}</p>}
+      </div>
     </div>
   );
 };

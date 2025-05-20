@@ -1,23 +1,21 @@
-
 body[data-theme="light"] {
-  --bg-color: #f0f0f0;
-  --text-color: #111111;
-  --card-bg: linear-gradient(135deg, #dfe9f3 0%, #ffffff 100%);
-  --primary-accent: #4a90e2;
-  --border-color: rgba(0, 0, 0, 0.05);
-  --shadow-color: rgba(0, 0, 0, 0.1);
+  --bg-color: #eef2f7; 
+  --text-color: #1e1e1e; 
+  --card-bg: linear-gradient(135deg, #f9fbfc 0%, #ffffff 100%);
+  --primary-accent: #6c90c5; 
+  --border-color: rgba(0, 0, 0, 0.06);
+  --shadow-color: rgba(0, 0, 0, 0.08);
   --input-bg: #ffffff;
-  --placeholder-color: rgba(0, 0, 0, 0.5);
+  --placeholder-color: rgba(20, 30, 40, 0.4);
 }
 
-
 body[data-theme="dark"] {
-  --bg-color: #121212;
-  --text-color: #f5f5f5;
-  --card-bg: rgba(30, 30, 30, 0.5); 
-  --primary-accent: #8ab4f8; 
-  --border-color: rgba(255, 255, 255, 0.05);
-  --shadow-color: rgba(0, 0, 0, 0.3);
-  --input-bg: #1e1e1e;
-  --placeholder-color: rgba(255, 255, 255, 0.5);
+  --bg-color: #0f1115; 
+  --text-color: #e0e6ec;
+  --card-bg: #1c1f24; 
+  --primary-accent: #a1c2eb; 
+  --border-color: rgba(255, 255, 255, 0.06);
+  --shadow-color: rgba(0, 0, 0, 0.4);
+  --input-bg: #1a1d22;
+  --placeholder-color: rgba(200, 210, 220, 0.5);
 }

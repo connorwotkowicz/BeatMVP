@@ -37,7 +37,6 @@ export default function Dashboard() {
 
     fetchUserBeats();
   }, [user, token, navigate]);
-
 console.log("User in Dashboard:", user);
 
 
@@ -54,24 +53,33 @@ console.log("User in Dashboard:", user);
   return (
     <div className="dashboard-page">
       <div className="dashboard-container">
-        <h1 className="dashboard-title">BeatDash</h1>
+      
 
     <div className="account-section">
+       <h1 className="dashboard-title">BeatDash</h1>
           <div className="section-header">
             <h3>Your Beats</h3>
           </div>
            <p className="sub-title">Saved Patterns</p>
           <div className="checked-books-container">
-            <div className="beats-list">
-              {userBeats.length > 0 ? (
-                userBeats.map((beat) => (
-                  <div key={beat.id} className="beat-item">
-                    <p>{beat.title}</p>
-                  </div>
-                ))
-              ) : (
-                <p>No saved beats found.</p>
-              )}
+      <div className="beats-list">
+  {userBeats.length > 0 ? (
+    userBeats.map((beat) => (
+      <Link
+        to={`/pattern-editor/${beat.id}`}
+        key={beat.id}
+        className="beat-item-link"
+      >
+        <div className="beat-item">
+          <p>{beat.title}</p>
+        </div>
+      </Link>
+    ))
+  ) : (
+    <p>No saved beats found.</p>
+  )}
+
+        
 
                  <Link to="#" className="account-link-buddy">
             <span className="shiny-text">Manage myBeats</span>
@@ -90,14 +98,14 @@ console.log("User in Dashboard:", user);
             <p className="user-label">Password</p>
             <p className="user-value">{"*".repeat(8)}</p>
           </div>
-      
+        <Link to="#" className="logout-link" onClick={handleLogout}>
+          Logout
+        </Link>
         </div>
 
     
 
-        <Link to="#" className="logout-link" onClick={handleLogout}>
-          Logout
-        </Link>
+  
       </div>
     </div>
   );

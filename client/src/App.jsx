@@ -36,12 +36,14 @@ function App() {
             </RequireAuth>
           }
         />
+        <Route path="/pattern-editor/:beatId" element={<PatternEditor />} />
+
       </Routes>
     </Router>
   );
 }
 
-// Helper component to protect routes
+
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
 
