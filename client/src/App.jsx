@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
 import Home from "./pages/Home";
@@ -11,50 +11,48 @@ import Login from "./components/Auth/Login";
 import Navigation from "./components/Navigation";
 
 function App() {
-  const [user, setUser] = useState(null);
-  const [token, setToken] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const storedToken = localStorage.getItem("token");
-    const storedUser = localStorage.getItem("user");
-    if (storedToken && storedUser) {
-      setToken(storedToken);
-      setUser(JSON.parse(storedUser));
-    }
-    setLoading(false);
-  }, []);
-
-  if (loading) return null;
-
   return (
     <Router>
-      <Navigation token={token} setToken={setToken} setUser={setUser} />
+      <Navigation />
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login setToken={setToken} setUser={setUser} />} />
-        <Route path="/register" element={<RegisterForm setToken={setToken} setUser={setUser} />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<RegisterForm />} />
 
         <Route
           path="/dashboard"
           element={
-            token ? (
-              <Dashboard user={user} setUser={setUser} setToken={setToken} />
-            ) : (
-              <Navigate to="/login" replace />
-            )
+            <RequireAuth>
+              <Dashboard />
+            </RequireAuth>
           }
         />
         <Route
           path="/editor"
           element={
-            token ? <PatternEditor user={user} /> : <Navigate to="/login" replace />
+            <RequireAuth>
+              <PatternEditor />
+            </RequireAuth>
           }
         />
       </Routes>
     </Router>
   );
+}
+
+// Helper component to protect routes
+import { useContext } from "react";
+import { AuthContext } from "./context/AuthContext";
+
+function RequireAuth({ children }) {
+  const { token } = useContext(AuthContext);
+
+  if (!token) {
+    return <Navigate to="/login" replace />;
+  }
+
+  return children;
 }
 
 export default App;

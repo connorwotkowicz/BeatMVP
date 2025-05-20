@@ -1,164 +1,135 @@
-.home-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 40px 20px;
-    color: var(--text);
-  }
-  
-  .account-container {
-    max-width: 400px;
-    width: 100%;
-    padding: 32px;
-    border-radius: 12px;
-    text-align: left;
-    backdrop-filter: blur(10px);
-    overflow-x: hidden;
-  }
-  
-  .account-title h2,
-  .account-container h2 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--text);
-    text-align: center;
-    margin-bottom: 24px;
-  }
-  
-  .account-section {
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 8px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .section-header {
-    background: rgba(56, 56, 63, 0.475);
-    color: #aaa;
-    padding: 12px 15px;
-    text-align: left;
-    border-radius: 8px 8px 0 0;
-    font-size: 1.2rem;
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .section-header h3 {
-    margin: 0;
-    font-size: 14px;
-  }
-  
-  .user-info p {
-    font-size: 1rem;
-    color: #e0e0e0;
-  }
-  
-  .user-label {
+/* =======================================
+   DASHBOARD PAGE WRAPPER
+======================================= */
+.dashboard-page {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  background: var(--card-bg);
+  background-size: cover;
+  background-position: center;
+  color: var(--text-color);
+}
+
+
+/* =======================================
+   DASHBOARD CONTAINER
+======================================= */
+.account-container {
+  width: 100%;
+  max-width: 1000px;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* =======================================
+   DASHBOARD TITLE
+======================================= */
+.account-title {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  color: var(--text-color);
+  text-align: center;
+}
+
+/* =======================================
+   ACCOUNT SECTIONS (Cards)
+======================================= */
+.account-section {
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px var(--shadow-color);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  transition: 0.3s ease;
+}
+
+.section-header {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: black;
+}
+
+/* =======================================
+   USER INFO BLOCK
+======================================= */
+.user-info {
+  p {
     font-size: 0.9rem;
-    color: #aaa;
-    font-weight: 500;
-    margin-top: 10px;
+    color: #111;
+    margin: 0.25rem 0;
   }
-  
-  .user-value {
-    font-size: 1rem;
-    font-weight: normal;
-    margin-bottom: 8px;
-  }
-  
-  .account-container ul {
-    list-style: none;
-    padding: 0;
-    width: 100%;
-  }
-  
-  .account-container li {
-    font-size: 1rem;
-    font-family: "Inspire-Regular", Helvetica, sans-serif;
-    color: hsl(0, 0%, 97.6%);
-    padding: 12px 16px;
-    background: rgba(255, 255, 255, 0.12);
-    border-radius: 8px;
-    margin-bottom: 12px;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .info-cont {
-    padding-left: 20px;
-  }
-  
-  .checked-books-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 10px 20px;
-  }
-  
-  .check-title {
-    font-size: 1rem;
-    font-weight: normal;
-    margin: 0;
-    color: white;
-  }
-  
-  .view-books-btn {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: #1f80e0;
-    text-decoration: none;
-    padding: 5px 10px;
-    border: 1px solid #1f80e0;
-    border-radius: 5px;
-    transition: background 0.3s ease-in-out;
-  }
-  
-  .view-books-btn:hover {
-    background: #1f80e0;
-    color: white;
-  }
-  
-  .account-link,
-  .logout-link,
-  .account-link-buddy {
-    font-size: 0.95rem;
-    font-weight: 500;
-    text-decoration: none;
-    color: #1f80e0;
-    display: block;
-    width: 100%;
-    text-align: right;
-    padding: 12px 15px;
-    box-sizing: border-box;
-  }
-  
-  .account-link-buddy {
-    text-align: center;
-    padding: 15px;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-  }
-  
-  .account-link:hover,
-  .logout-link:hover {
+}
+
+.user-label {
+  font-weight: 500;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+.user-value {
+  font-weight: 400;
+  color: #111;
+}
+
+/* =======================================
+   LINKS & ACTIONS
+======================================= */
+.account-link,
+.logout-link,
+.account-link-buddy {
+  font-size: 0.95rem;
+  color: var(--primary-accent);
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 1rem;
+
+  &:hover {
     text-decoration: underline;
   }
-  
-  .account-manage-title {
-    font-size: 22px;
-    font-weight: normal;
+}
+
+.account-link-buddy {
+  display: block;
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* =======================================
+   CHECKED OUT BOOKS PREVIEW
+======================================= */
+.checked-books-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f9f9f9;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.check-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #111;
+}
+
+.view-books-btn {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--primary-accent);
+  border: 1px solid var(--primary-accent);
+  padding: 0.4rem 0.75rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: var(--primary-accent);
     color: white;
-    background: linear-gradient(70deg, #a4fffc, #003b5c);
-    background-clip: text;
-    -webkit-background-clip: text;
-    display: inline-block;
-    padding: 5px;
-    transition: transform 0.3s ease-in-out;
-    background-size: 200% 200%;
   }
-  
+}

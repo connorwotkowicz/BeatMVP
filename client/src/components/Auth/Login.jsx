@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
-export default function Login({ setToken, setUser }) {
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
+export default function Login() {
+  const { login } = useContext(AuthContext); // get login function from context
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -13,32 +17,17 @@ export default function Login({ setToken, setUser }) {
     setError("");
 
     try {
-      const loginRes = await fetch("http://localhost:3000/api/auth/login", {
+      const loginRes = await fetch(`${BACKEND_URL}/api/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
 
       const loginData = await loginRes.json();
-      console.log("Login Response:", loginData);
+      if (!loginRes.ok) throw new Error(loginData.message || "Login failed");
 
-      if (!loginData.token) throw new Error("Invalid credentials");
-
-      localStorage.setItem("token", loginData.token);
-      setToken(loginData.token);
-
-      const userRes = await fetch("http://localhost:3000/api/auth/me", {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${loginData.token}`,
-        },
-      });
-
-      const userData = await userRes.json();
-      if (!userData?.id) throw new Error("Failed to fetch user data");
-
-      localStorage.setItem("user", JSON.stringify(userData));
-      setUser(userData);
+      // Use context login to update auth state
+      login(loginData.token, loginData.user);
 
       navigate("/dashboard");
     } catch (err) {
@@ -75,6 +64,7 @@ export default function Login({ setToken, setUser }) {
           <form className="login-form" onSubmit={handleSubmit}>
             <div className="log-input-group">
               <input
+                autoFocus
                 type="email"
                 placeholder="Email"
                 value={email}

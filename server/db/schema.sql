@@ -10,12 +10,14 @@ CREATE TABLE users (
   password TEXT NOT NULL
 );
 
--- BEATS (added user_id foreign key)
+-- BEATS (added user_id foreign key + data column)
 CREATE TABLE beats (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   user_id UUID REFERENCES users(id) ON DELETE CASCADE, -- 🔑 links beat to user
   title TEXT NOT NULL,
-  audio_url TEXT
+  audio_url TEXT,
+  data JSONB NOT NULL,
+  created_at TIMESTAMP DEFAULT NOW()
 );
 
 -- PATTERNS
