@@ -5,7 +5,7 @@ import { AuthContext } from "../../context/AuthContext";
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 export default function Login() {
-  const { login } = useContext(AuthContext); // get login function from context
+  const { login } = useContext(AuthContext); 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -26,7 +26,7 @@ export default function Login() {
       const loginData = await loginRes.json();
       if (!loginRes.ok) throw new Error(loginData.message || "Login failed");
 
-      // Use context login to update auth state
+     
       login(loginData.token, loginData.user);
 
       navigate("/dashboard");

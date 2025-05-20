@@ -1,4 +1,4 @@
-/* Page wrapper for Login/Register */
+
 .login-page,
 .register-page {
   display: flex;
@@ -13,13 +13,13 @@
   background-position: center;
 }
 
-/* Login/Register container - Glassmorphism enhanced */
+
 .login-container,
 .register-container {
   opacity: 0;
   display: flex;
   flex-direction: column;
-  background: var(--card-bg); /* semi-transparent from theme */
+  background: var(--card-bg); 
   border-radius: 8px;
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
@@ -36,7 +36,7 @@
 
 
 
-/* Input fields */
+
 .login-container input,
 .register-container input {
   width: 100%;
@@ -57,14 +57,14 @@
   background: rgba(255, 255, 255, 0.3);
 }
 
-/* Placeholder styling */
+
 .login-container input::placeholder,
 .register-container input::placeholder {
   color: var(--text-color);
   opacity: 0.6;
 }
 
-/* Fade-in animation */
+
 @keyframes fade_slide {
   to {
     opacity: 1;

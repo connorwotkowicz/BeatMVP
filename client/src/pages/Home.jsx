@@ -5,8 +5,8 @@ const Home = () => {
   return (
     <div className="home-page">
    <div>
-      <h1>🎶 Welcome to BeatMVP</h1>
-      <p>This is your home page routed with React Router.</p>
+      <h1>BeatMVP</h1>
+      <p></p>
     </div>
     </div>
   );

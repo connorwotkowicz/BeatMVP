@@ -66,11 +66,10 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-/* Light Theme */
 body[data-theme=light] {
   --bg-color: #f0f0f0;
   --text-color: #111111;
-  --card-bg: linear-gradient(135deg, #dfe9f3 0%, #ffffff 100%); /* translucent white */
+  --card-bg: linear-gradient(135deg, #dfe9f3 0%, #ffffff 100%);
   --primary-accent: #4a90e2;
   --border-color: rgba(0, 0, 0, 0.05);
   --shadow-color: rgba(0, 0, 0, 0.1);
@@ -78,21 +77,17 @@ body[data-theme=light] {
   --placeholder-color: rgba(0, 0, 0, 0.5);
 }
 
-/* Dark Theme */
 body[data-theme=dark] {
   --bg-color: #121212;
   --text-color: #f5f5f5;
-  --card-bg: rgba(30, 30, 30, 0.5); /* translucent dark */
-  --primary-accent: #8ab4f8; /* softer, cooler tone */
+  --card-bg: rgba(30, 30, 30, 0.5);
+  --primary-accent: #8ab4f8;
   --border-color: rgba(255, 255, 255, 0.05);
   --shadow-color: rgba(0, 0, 0, 0.3);
   --input-bg: #1e1e1e;
   --placeholder-color: rgba(255, 255, 255, 0.5);
 }
 
-/* =======================================
-   DASHBOARD PAGE WRAPPER
-======================================= */
 .dashboard-page {
   display: flex;
   justify-content: center;
@@ -104,9 +99,6 @@ body[data-theme=dark] {
   color: var(--text-color);
 }
 
-/* =======================================
-   DASHBOARD CONTAINER
-======================================= */
 .account-container {
   width: 100%;
   max-width: 1000px;
@@ -114,9 +106,6 @@ body[data-theme=dark] {
   box-sizing: border-box;
 }
 
-/* =======================================
-   DASHBOARD TITLE
-======================================= */
 .account-title {
   font-size: 2rem;
   font-weight: 400;
@@ -125,9 +114,6 @@ body[data-theme=dark] {
   text-align: center;
 }
 
-/* =======================================
-   ACCOUNT SECTIONS (Cards)
-======================================= */
 .account-section {
   background: white;
   border-radius: 6px;
@@ -144,9 +130,6 @@ body[data-theme=dark] {
   color: black;
 }
 
-/* =======================================
-   USER INFO BLOCK
-======================================= */
 .user-info p {
   font-size: 0.9rem;
   color: #111;
@@ -164,9 +147,6 @@ body[data-theme=dark] {
   color: #111;
 }
 
-/* =======================================
-   LINKS & ACTIONS
-======================================= */
 .account-link,
 .logout-link,
 .account-link-buddy {
@@ -189,9 +169,6 @@ body[data-theme=dark] {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* =======================================
-   CHECKED OUT BOOKS PREVIEW
-======================================= */
 .checked-books-container {
   display: flex;
   justify-content: space-between;
@@ -289,7 +266,6 @@ body[data-theme=dark] {
   display: flex;
 }
 
-/* Page wrapper for Login/Register */
 .login-page,
 .register-page {
   display: flex;
@@ -304,13 +280,12 @@ body[data-theme=dark] {
   background-position: center;
 }
 
-/* Login/Register container - Glassmorphism enhanced */
 .login-container,
 .register-container {
   opacity: 0;
   display: flex;
   flex-direction: column;
-  background: var(--card-bg); /* semi-transparent from theme */
+  background: var(--card-bg);
   border-radius: 8px;
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
@@ -324,7 +299,6 @@ body[data-theme=dark] {
   transition: all 0.3s ease-in-out;
 }
 
-/* Input fields */
 .login-container input,
 .register-container input {
   width: 100%;
@@ -345,18 +319,17 @@ body[data-theme=dark] {
   background: rgba(255, 255, 255, 0.3);
 }
 
-/* Placeholder styling */
 .login-container input::-moz-placeholder, .register-container input::-moz-placeholder {
   color: var(--text-color);
   opacity: 0.6;
 }
+
 .login-container input::placeholder,
 .register-container input::placeholder {
   color: var(--text-color);
   opacity: 0.6;
 }
 
-/* Fade-in animation */
 @keyframes fade_slide {
   to {
     opacity: 1;
@@ -572,7 +545,7 @@ body[data-theme=dark] {
 }
 
 .account-dropdown {
-  position: relative; /* To position dropdown menu absolutely within */
+  position: relative;
 }
 .account-dropdown .account-avatar {
   width: 30px;
@@ -591,8 +564,8 @@ body[data-theme=dark] {
 .account-dropdown .account-dropdown-menu {
   position: absolute;
   top: 50px;
-  right: 0; /* Align to the right edge of the avatar */
-  width: 200px; /* Fixed width for dropdown */
+  right: 0;
+  width: 200px;
   padding: 10px 0;
   background-color: var(--nav);
   -webkit-backdrop-filter: blur(15px);
@@ -611,7 +584,7 @@ body[data-theme=dark] {
   pointer-events: auto;
 }
 .account-dropdown .account-dropdown-menu .dropdown-links {
-  margin-top: 0; /* You can adjust if needed */
+  margin-top: 0;
   display: flex;
   flex-direction: column;
 }

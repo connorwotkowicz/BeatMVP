@@ -28,8 +28,6 @@ router.post("/", authenticateToken, async (req, res) => {
 });
 
 
-
-// Get all beats for the logged-in user
 router.get("/", authenticateToken, async (req, res) => {
   try {
     const result = await db.query(
@@ -43,7 +41,7 @@ router.get("/", authenticateToken, async (req, res) => {
   }
 });
 
-// Get one beat by id (with user check)
+
 router.get("/:id", authenticateToken, async (req, res) => {
   const { id } = req.params;
   try {

@@ -6,7 +6,7 @@ const SequencerGrid = ({ pattern, onPatternChange }) => {
   const rows = 4;
   const cols = 16;
 
-  // If pattern not passed from parent, initialize empty pattern (fallback)
+
   const defaultPattern = Array(rows).fill().map(() => Array(cols).fill(false));
   const controlledPattern = pattern || defaultPattern;
 
@@ -48,7 +48,7 @@ const SequencerGrid = ({ pattern, onPatternChange }) => {
     });
   }, []);
 
-  // Toggle a cell — calls parent callback to update pattern state
+
   const toggleCell = (r, c) => {
     if (!onPatternChange) return;
     const newPattern = controlledPattern.map(row => [...row]);

@@ -10,10 +10,10 @@ const client = new Client({
 });
 
 client.connect()
-  .then(() => console.log('✅ PostgreSQL connected'))
+  .then(() => console.log('PostgreSQL connected'))
   .catch(err => {
-    console.error('❌ PostgreSQL connection error:', err);
-    process.exit(1); // Exit the app if DB fails
+    console.error('PostgreSQL connection error:', err);
+    process.exit(1); 
   });
 
 module.exports = client;

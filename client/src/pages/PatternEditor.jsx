@@ -37,7 +37,7 @@ const PatternEditor = () => {
     try {
       const payload = { title, data: pattern };
       if (beatId) {
-        // Implement PUT endpoint in backend for updating beats to support this
+      
         await API.put(`/beats/${beatId}`, payload);
         setMessage("Beat updated successfully!");
       } else {

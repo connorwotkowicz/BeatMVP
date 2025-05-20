@@ -6,7 +6,7 @@ const { getUserByEmail, registerUser, getUserById } = require("../models/User");
 const { authenticateToken } = require("../middleware/authMiddleware");
 const { jwtSecret } = require("../config/authConfig");
 
-// REGISTER
+
 router.post("/register", async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -29,7 +29,7 @@ router.post("/register", async (req, res) => {
   }
 });
 
-// LOGIN
+
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -47,7 +47,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
-// GET CURRENT USER
+
 router.get("/me", authenticateToken, async (req, res) => {
   try {
     const user = await getUserById(req.user.id);

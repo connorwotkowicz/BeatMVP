@@ -3,7 +3,7 @@ import React from 'react';
 const SoundControls = ({ tempo, setTempo, isPlaying, onPlayToggle }) => {
   return (
     <div className="sound-controls">
-      <h2>🎛️ Sound Controls</h2>
+      <h2>Sound Controls</h2>
 
       <div className = "volume-control">
         <label htmlFor="volume">Volume</label>

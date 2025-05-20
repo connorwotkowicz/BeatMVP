@@ -11,7 +11,7 @@ export default function Dashboard() {
   
 
   useEffect(() => {
-    if (!user) return; // Wait for user to load
+    if (!user) return; 
 
     if (!user.id) {
       navigate("/login");
@@ -43,7 +43,7 @@ console.log("User in Dashboard:", user);
 
   const handleLogout = () => {
     logout();
-    localStorage.removeItem("user"); // optional if stored separately
+    localStorage.removeItem("user"); 
     navigate("/");
   };
 
