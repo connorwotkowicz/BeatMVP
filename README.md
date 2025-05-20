@@ -50,9 +50,7 @@ BeatMVP is a full-stack web application for building, playing, and saving drum p
 
 ---
 
-## Project Structure
-
-The app is divided into backend and frontend layers.
+## Structure
 
 ### Backend (Express)
 
@@ -73,7 +71,7 @@ The app is divided into backend and frontend layers.
 
 ---
 
-## Possible / Planned Improvements
+### Possible Improvements
 
 - Real-time collaboration (WebSockets or Firebase)
 - Expandable instrument kits and custom samples
@@ -82,7 +80,6 @@ The app is divided into backend and frontend layers.
 
 ---
 
----
 
 ## Getting Started
 
@@ -130,9 +127,8 @@ npm run dev
 
 ## Author
 
-Connor D. Wotkowicz  
-GitHub: [github.com/connorwotko](https://github.com/connorwotko)  
-LinkedIn: [linkedin.com/in/connorwotko](https://www.linkedin.com/in/connorwotko)
+Connor D. Wotkowicz   
+LinkedIn: [linkedin.com/in/connorwotko](https://www.linkedin.com/in/wotkowicz)
 
 ---
 
