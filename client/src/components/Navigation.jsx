@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
 import { AuthContext } from "../context/AuthContext";
 import defaultProfilePic from "/public/assets/images/default-profile.png";
-import { Sun, Moon } from "lucide-react"; // ✅ outlined icons
+import { Sun, Moon } from "lucide-react"; 
 
 const Navigation = () => {
   const navigate = useNavigate();
@@ -57,7 +57,7 @@ const Navigation = () => {
                 Editor
               </Link>
 
-              {/* ✅ Outlined theme toggle icon */}
+            
               <button
                 className="theme-toggle-button"
                 onClick={toggleTheme}

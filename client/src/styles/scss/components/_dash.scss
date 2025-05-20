@@ -1,6 +1,3 @@
-/* =======================================
-   DASHBOARD PAGE WRAPPER
-======================================= */
 .dashboard-page {
   display: flex;
   justify-content: center;
@@ -12,10 +9,6 @@
   color: var(--text-color);
 }
 
-
-/* =======================================
-   DASHBOARD CONTAINER
-======================================= */
 .account-container {
   width: 100%;
   max-width: 1000px;
@@ -23,9 +16,6 @@
   box-sizing: border-box;
 }
 
-/* =======================================
-   DASHBOARD TITLE
-======================================= */
 .account-title {
   font-size: 2rem;
   font-weight: 400;
@@ -34,9 +24,6 @@
   text-align: center;
 }
 
-/* =======================================
-   ACCOUNT SECTIONS (Cards)
-======================================= */
 .account-section {
   background: white;
   border-radius: 6px;
@@ -53,9 +40,6 @@
   color: black;
 }
 
-/* =======================================
-   USER INFO BLOCK
-======================================= */
 .user-info {
   p {
     font-size: 0.9rem;
@@ -75,9 +59,6 @@
   color: #111;
 }
 
-/* =======================================
-   LINKS & ACTIONS
-======================================= */
 .account-link,
 .logout-link,
 .account-link-buddy {
@@ -99,9 +80,6 @@
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* =======================================
-   CHECKED OUT BOOKS PREVIEW
-======================================= */
 .checked-books-container {
   display: flex;
   justify-content: space-between;

@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
         .then(async (res) => {
           if (!res.ok) {
             const errorData = await res.json();
-            console.error("❌ Failed to fetch user from /me:", errorData);
+            console.error("Failed to fetch user from /me:", errorData);
             setUser(null);
             return;
           }
@@ -23,15 +23,15 @@ export const AuthProvider = ({ children }) => {
         })
         .then((data) => {
           if (data?.id) {
-            console.log("✅ User loaded from token:", data);
+            console.log("User loaded from token:", data);
             setUser(data);
           } else {
-            console.warn("⚠️ Invalid user data:", data);
+            console.warn("Invalid user data:", data);
             setUser(null);
           }
         })
         .catch((err) => {
-          console.error("❌ AuthContext fetch error:", err);
+          console.error("AuthContext fetch error:", err);
           setUser(null);
         });
     }

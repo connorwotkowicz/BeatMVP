@@ -5,7 +5,7 @@ import { AuthContext } from "../../context/AuthContext";
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 export default function RegisterForm() {
-  const { login } = useContext(AuthContext); // get login function from context
+  const { login } = useContext(AuthContext); 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
@@ -29,7 +29,7 @@ export default function RegisterForm() {
       const data = await res.json();
       if (!data.success) throw new Error(data.message || "Registration failed.");
 
-      // Use context login to update auth state
+     
       login(data.token, data.user);
 
       alert("Registration successful! You are now logged in.");

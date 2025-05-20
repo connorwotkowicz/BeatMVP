@@ -1,5 +1,3 @@
-//TEMPLATE
-
 
 const db = require('../config/db'); 
 const uuid = require('uuid');
