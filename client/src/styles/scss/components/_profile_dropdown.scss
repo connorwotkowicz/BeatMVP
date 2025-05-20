@@ -1,0 +1,68 @@
+.account-dropdown {
+  position: relative; /* To position dropdown menu absolutely within */
+
+  .account-avatar {
+    width: 30px;
+    margin-top: 4px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--text-color);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .account-dropdown-menu {
+    position: absolute;
+    top: 50px;
+    right: 0; /* Align to the right edge of the avatar */
+    width: 200px; /* Fixed width for dropdown */
+    padding: 10px 0;
+    background-color: var(--nav);
+    backdrop-filter: blur(15px);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    z-index: 150;
+
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+
+    &.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .dropdown-links {
+      margin-top: 0; /* You can adjust if needed */
+      display: flex;
+      flex-direction: column;
+    }
+
+    .dropdown-link,
+    .dropdown-link-button {
+      margin: 8px 0;
+      padding: 0.75rem 1rem;
+      color: var(--text-color);
+      font-size: 1rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      font-family: inherit;
+      transition: background 0.3s ease, color 0.3s ease;
+
+      &:hover,
+      &:focus {
+        background: rgba(255, 255, 255, 0.2);
+        outline: none;
+      }
+    }
+  }
+}

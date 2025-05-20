@@ -1,7 +1,11 @@
-import { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
-export default function Register({ setToken, setUser }) {
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
+export default function RegisterForm() {
+  const { login } = useContext(AuthContext); // get login function from context
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
@@ -16,21 +20,17 @@ export default function Register({ setToken, setUser }) {
     }
 
     try {
-      const res = await fetch("http://localhost:3000/api/auth/register", {
+      const res = await fetch(`${BACKEND_URL}/api/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
 
       const data = await res.json();
+      if (!data.success) throw new Error(data.message || "Registration failed.");
 
-      if (!data.success) throw new Error(data.message);
-
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("user", JSON.stringify(data.user));
-
-      setToken(data.token);
-      setUser(data.user);
+      // Use context login to update auth state
+      login(data.token, data.user);
 
       alert("Registration successful! You are now logged in.");
       navigate("/dashboard");
@@ -81,7 +81,9 @@ export default function Register({ setToken, setUser }) {
                 placeholder="Set password"
               />
             </div>
-            <button type="submit" className="reg-button">Register</button>
+            <button type="submit" className="reg-button">
+              Register
+            </button>
           </form>
         </div>
       </div>

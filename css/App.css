@@ -23,8 +23,7 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
+  background-color: #242424;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -67,54 +66,303 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-.login-page,
-.register-page {
+/* Light Theme */
+body[data-theme=light] {
+  --bg-color: #f0f0f0;
+  --text-color: #111111;
+  --card-bg: linear-gradient(135deg, #dfe9f3 0%, #ffffff 100%); /* translucent white */
+  --primary-accent: #4a90e2;
+  --border-color: rgba(0, 0, 0, 0.05);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --input-bg: #ffffff;
+  --placeholder-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Dark Theme */
+body[data-theme=dark] {
+  --bg-color: #121212;
+  --text-color: #f5f5f5;
+  --card-bg: rgba(30, 30, 30, 0.5); /* translucent dark */
+  --primary-accent: #8ab4f8; /* softer, cooler tone */
+  --border-color: rgba(255, 255, 255, 0.05);
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --input-bg: #1e1e1e;
+  --placeholder-color: rgba(255, 255, 255, 0.5);
+}
+
+/* =======================================
+   DASHBOARD PAGE WRAPPER
+======================================= */
+.dashboard-page {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  background: var(--card-bg);
+  background-size: cover;
+  background-position: center;
+  color: var(--text-color);
+}
+
+/* =======================================
+   DASHBOARD CONTAINER
+======================================= */
+.account-container {
+  width: 100%;
+  max-width: 1000px;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* =======================================
+   DASHBOARD TITLE
+======================================= */
+.account-title {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  color: var(--text-color);
+  text-align: center;
+}
+
+/* =======================================
+   ACCOUNT SECTIONS (Cards)
+======================================= */
+.account-section {
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px var(--shadow-color);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  transition: 0.3s ease;
+}
+
+.section-header {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: black;
+}
+
+/* =======================================
+   USER INFO BLOCK
+======================================= */
+.user-info p {
+  font-size: 0.9rem;
+  color: #111;
+  margin: 0.25rem 0;
+}
+
+.user-label {
+  font-weight: 500;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+.user-value {
+  font-weight: 400;
+  color: #111;
+}
+
+/* =======================================
+   LINKS & ACTIONS
+======================================= */
+.account-link,
+.logout-link,
+.account-link-buddy {
+  font-size: 0.95rem;
+  color: var(--primary-accent);
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 1rem;
+}
+.account-link:hover,
+.logout-link:hover,
+.account-link-buddy:hover {
+  text-decoration: underline;
+}
+
+.account-link-buddy {
+  display: block;
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* =======================================
+   CHECKED OUT BOOKS PREVIEW
+======================================= */
+.checked-books-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f9f9f9;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.check-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #111;
+}
+
+.view-books-btn {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--primary-accent);
+  border: 1px solid var(--primary-accent);
+  padding: 0.4rem 0.75rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+.view-books-btn:hover {
+  background: var(--primary-accent);
+  color: white;
+}
+
+.sequencer-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 40px;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
 }
 
+.grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.row {
+  display: flex;
+}
+
+.cell {
+  width: 24px;
+  height: 24px;
+  margin: 2px;
+  border: none;
+  background-color: #222;
+}
+.cell.active {
+  background-color: #4caf50;
+}
+.cell.current-step {
+  border: 2px solid yellow;
+}
+
+.tempo-control {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tempo-control label {
+  margin-bottom: 0.5rem;
+  color: white;
+}
+.tempo-control input[type=range] {
+  width: 40vh;
+}
+
+.row-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.row-label {
+  width: 60px;
+  text-align: right;
+  margin-right: 8px;
+  font-weight: bold;
+  font-family: monospace;
+}
+
+.row {
+  display: flex;
+}
+
+/* Page wrapper for Login/Register */
+.login-page,
+.register-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 40px;
+  background-color: var(--bg-color);
+  background: linear-gradient(135deg, #dfe9f3 0%, #ffffff 100%);
+  color: var(--text-color);
+  background-size: cover;
+  background-position: center;
+}
+
+/* Login/Register container - Glassmorphism enhanced */
 .login-container,
 .register-container {
   opacity: 0;
   display: flex;
   flex-direction: column;
-  background-color: rgba(0, 0, 0, 0.4);
-  border-radius: 12px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  background: var(--card-bg); /* semi-transparent from theme */
+  border-radius: 8px;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 50px 72px;
-  width: 580px;
+  padding: 40px 60px;
+  width: 520px;
   max-width: 90%;
-  transform: translateY(50px);
-  animation: fade_slide 0.7s ease-out 0.2s forwards;
+  transform: translateY(40px);
+  animation: fade_slide 0.6s ease-out 0.2s forwards;
+  transition: all 0.3s ease-in-out;
 }
 
+/* Input fields */
 .login-container input,
 .register-container input {
   width: 100%;
-  padding: 14px;
+  padding: 12px;
   font-size: 1rem;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  background: #f8f8f8;
-  color: #333;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--text-color);
   margin-bottom: 16px;
   outline: none;
+  transition: border 0.2s ease, background 0.2s ease;
 }
 
+.login-container input:focus,
+.register-container input:focus {
+  border-color: var(--primary-accent);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Placeholder styling */
 .login-container input::-moz-placeholder, .register-container input::-moz-placeholder {
-  color: #888;
+  color: var(--text-color);
+  opacity: 0.6;
 }
-
 .login-container input::placeholder,
 .register-container input::placeholder {
-  color: #888;
+  color: var(--text-color);
+  opacity: 0.6;
 }
 
+/* Fade-in animation */
+@keyframes fade_slide {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 @keyframes slide_up {
   from {
     transform: translateY(60px);
@@ -188,4 +436,201 @@ button:focus-visible {
     opacity: 1;
     transform: translateY(0);
   }
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 45px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  transition: background 0.3s ease;
+}
+.navbar .nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 24px;
+  margin: 0 auto;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.navbar .nav-left,
+.navbar .nav-center,
+.navbar .nav-right {
+  display: flex;
+  align-items: center;
+}
+.navbar .nav-left {
+  gap: 8px;
+  padding-left: 0;
+  margin-left: 0;
+}
+.navbar .lognav-logo {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #ffd700, #ffa500);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-left: 0;
+  padding-left: 0;
+  transition: transform 0.3s ease;
+}
+.navbar .lognav-logo:hover {
+  cursor: pointer;
+}
+.navbar .nav-center {
+  gap: 20px;
+}
+@media (min-width: 769px) {
+  .navbar .nav-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+}
+@media (max-width: 768px) {
+  .navbar .nav-center {
+    position: static;
+    transform: none;
+    pointer-events: auto;
+  }
+}
+.navbar .nav-right {
+  gap: 12px;
+}
+.navbar .nav-right img {
+  border-radius: 50%;
+  height: 32px;
+  width: 32px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.navbar a,
+.navbar button {
+  color: white;
+  font-weight: 400;
+  font-size: 15px;
+  padding: 8px 12px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.navbar a:hover, .navbar a:focus,
+.navbar button:hover,
+.navbar button:focus {
+  color: #ffd700;
+  outline: none;
+}
+@media (max-width: 768px) {
+  .navbar .nav-left,
+  .navbar .nav-right {
+    gap: 12px;
+  }
+  .navbar a,
+  .navbar button {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+  .navbar .lognav-logo {
+    font-size: 18px;
+  }
+}
+
+.theme-toggle-button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.theme-toggle-button svg {
+  width: 15px;
+  height: 15px;
+}
+.theme-toggle-button:hover {
+  transform: scale(1.1);
+}
+
+.account-dropdown {
+  position: relative; /* To position dropdown menu absolutely within */
+}
+.account-dropdown .account-avatar {
+  width: 30px;
+  margin-top: 4px;
+  height: 30px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: 2px solid var(--text-color);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.account-dropdown .account-avatar:hover {
+  cursor: pointer;
+}
+.account-dropdown .account-dropdown-menu {
+  position: absolute;
+  top: 50px;
+  right: 0; /* Align to the right edge of the avatar */
+  width: 200px; /* Fixed width for dropdown */
+  padding: 10px 0;
+  background-color: var(--nav);
+  -webkit-backdrop-filter: blur(15px);
+          backdrop-filter: blur(15px);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  z-index: 150;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.account-dropdown .account-dropdown-menu.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.account-dropdown .account-dropdown-menu .dropdown-links {
+  margin-top: 0; /* You can adjust if needed */
+  display: flex;
+  flex-direction: column;
+}
+.account-dropdown .account-dropdown-menu .dropdown-link,
+.account-dropdown .account-dropdown-menu .dropdown-link-button {
+  margin: 8px 0;
+  padding: 0.75rem 1rem;
+  color: var(--text-color);
+  font-size: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.account-dropdown .account-dropdown-menu .dropdown-link:hover, .account-dropdown .account-dropdown-menu .dropdown-link:focus,
+.account-dropdown .account-dropdown-menu .dropdown-link-button:hover,
+.account-dropdown .account-dropdown-menu .dropdown-link-button:focus {
+  background: rgba(255, 255, 255, 0.2);
+  outline: none;
 }

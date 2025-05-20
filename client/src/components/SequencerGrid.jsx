@@ -2,15 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import SoundControls from './SoundControls';
 import * as Tone from 'tone';
 
-const SequencerGrid = () => {
+const SequencerGrid = ({ pattern, onPatternChange }) => {
   const rows = 4;
   const cols = 16;
 
-  const [grid, setGrid] = useState(
-    Array(rows)
-      .fill()
-      .map(() => Array(cols).fill(false))
-  );
+  // If pattern not passed from parent, initialize empty pattern (fallback)
+  const defaultPattern = Array(rows).fill().map(() => Array(cols).fill(false));
+  const controlledPattern = pattern || defaultPattern;
 
   const [visualStep, setVisualStep] = useState(0);
   const currentStepRef = useRef(0);
@@ -25,7 +23,7 @@ const SequencerGrid = () => {
     new Tone.Player({ url: '/assets/sounds/clap.mp3', autostart: false }).toDestination(),
   ]);
 
-  const soundNames = ['Kick', 'Snare', 'Hi-Hat', 'Clap']; 
+  const soundNames = ['Kick', 'Snare', 'Hi-Hat', 'Clap'];
 
   useEffect(() => {
     Tone.Destination.volume.value = 0;
@@ -50,18 +48,18 @@ const SequencerGrid = () => {
     });
   }, []);
 
+  // Toggle a cell — calls parent callback to update pattern state
   const toggleCell = (r, c) => {
-    const newGrid = grid.map((row, rowIndex) =>
-      row.map((cell, colIndex) => (rowIndex === r && colIndex === c ? !cell : cell))
-    );
-    setGrid(newGrid);
+    if (!onPatternChange) return;
+    const newPattern = controlledPattern.map(row => [...row]);
+    newPattern[r][c] = !newPattern[r][c];
+    onPatternChange(newPattern);
   };
 
   const clearGrid = () => {
-    const emptyGrid = Array(rows)
-      .fill()
-      .map(() => Array(cols).fill(false));
-    setGrid(emptyGrid);
+    if (!onPatternChange) return;
+    const emptyPattern = Array(rows).fill().map(() => Array(cols).fill(false));
+    onPatternChange(emptyPattern);
   };
 
   const startTransport = async () => {
@@ -87,7 +85,7 @@ const SequencerGrid = () => {
         let step = currentStepRef.current;
 
         for (let i = 0; i < rows; i++) {
-          if (grid[i][step]) {
+          if (controlledPattern[i][step]) {
             sounds.current[i].start(time, 0);
           }
         }
@@ -106,7 +104,7 @@ const SequencerGrid = () => {
       Tone.Transport.stop();
       Tone.Transport.clear(repeatIdRef.current);
     };
-  }, [isPlaying, grid]);
+  }, [isPlaying, controlledPattern]);
 
   useEffect(() => {
     Tone.Transport.bpm.value = tempo;
@@ -115,7 +113,7 @@ const SequencerGrid = () => {
   return (
     <div className="sequencer-container">
       <div className="grid">
-        {grid.map((row, rIdx) => (
+        {controlledPattern.map((row, rIdx) => (
           <div key={rIdx} className="row-wrapper">
             <div className="row-label">{soundNames[rIdx]}</div>
             <div className="row">
@@ -124,6 +122,8 @@ const SequencerGrid = () => {
                   key={cIdx}
                   className={`cell ${cell ? 'active' : ''} ${cIdx === visualStep ? 'current-step' : ''}`}
                   onClick={() => toggleCell(rIdx, cIdx)}
+                  aria-pressed={cell}
+                  aria-label={`${soundNames[rIdx]} step ${cIdx + 1}`}
                 >
                   ▪
                 </button>
@@ -140,7 +140,7 @@ const SequencerGrid = () => {
         onPlayToggle={isPlaying ? stopTransport : startTransport}
       />
 
-      <button onClick={clearGrid}>🧼 Clear Grid</button>
+      <button onClick={clearGrid}>Clear Grid</button>
 
       <button
         onClick={async () => {
