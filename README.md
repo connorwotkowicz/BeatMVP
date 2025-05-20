@@ -1,4 +1,4 @@
-# 🎯 Project Overview: Beat Sequencer App
+# Project Overview: Beat Sequencer App
 
 ## Goal:
 Create a collaborative beat sequencer using React, Tone.js, PostgreSQL, and CSS to allow users to create and play back music patterns in real-time.
@@ -24,9 +24,9 @@ Create a collaborative beat sequencer using React, Tone.js, PostgreSQL, and CSS 
 
 ---
 
-## 📦 Features and Tasks Breakdown
+## Features and Tasks Breakdown
 
-### 1️⃣ **User Authentication and Authorization**
+### 1️**User Authentication and Authorization**
 
 #### Login/Register:
 - Create user registration and login forms.
@@ -44,7 +44,7 @@ Create a collaborative beat sequencer using React, Tone.js, PostgreSQL, and CSS 
 
 ---
 
-### 2️⃣ **Sequencer Grid & Tone.js Integration**
+### **Sequencer Grid & Tone.js Integration**
 
 #### Grid Layout:
 - Create a 4x16 grid with buttons representing each instrument and time step.
@@ -65,7 +65,7 @@ Create a collaborative beat sequencer using React, Tone.js, PostgreSQL, and CSS 
 
 ---
 
-### 3️⃣ **Collaborative Features (Future Optional Enhancement)**
+### **Collaborative Features (Future Optional Enhancement)**
 
 #### Real-time Collaboration (Optional):
 - Allow multiple users to collaborate on the same pattern using WebSockets or Firebase.
@@ -77,7 +77,7 @@ Create a collaborative beat sequencer using React, Tone.js, PostgreSQL, and CSS 
 
 ---
 
-### 4️⃣ **Backend & Database**
+### **Backend & Database**
 
 #### PostgreSQL:
 - Create a database with tables for storing users and patterns.
