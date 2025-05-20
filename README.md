@@ -1,93 +1,138 @@
-# Project Overview: Beat Sequencer App
+# BeatMVP — Web-Based Beat Sequencer
 
-## Goal:
-Create a collaborative beat sequencer using React, Tone.js, PostgreSQL, and CSS to allow users to create and play back music patterns in real-time.
+![React](https://img.shields.io/badge/frontend-React-61DAFB?logo=react&logoColor=white)
+![Tone.js](https://img.shields.io/badge/audio-Tone.js-ff7373)
+![Node.js](https://img.shields.io/badge/backend-Node.js-339933?logo=node.js&logoColor=white)
+![Express](https://img.shields.io/badge/server-Express-000000?logo=express&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/database-PostgreSQL-336791?logo=postgresql&logoColor=white)
+![JWT](https://img.shields.io/badge/auth-JWT-yellowgreen)
+![Vite](https://img.shields.io/badge/build-Vite-646CFF?logo=vite&logoColor=white)
+![SCSS](https://img.shields.io/badge/styles-SCSS-CC6699?logo=sass&logoColor=white)
 
-## Core Features:
-- **User Authentication** (JWT-based)
-- **Collaborative Grid** (step sequencer with 16 steps and 4 rows of sounds)
-- **Tone.js Integration** (for sound playback)
-- **Playback Control** (start/stop, playback of created patterns)
-- **Grid State Management** (toggle steps for different instruments)
-- **Backend** (Node.js/Express with PostgreSQL to store patterns)
+BeatMVP is a full-stack web application for building, playing, and saving drum patterns using a 4×16 step sequencer grid. It features real-time audio playback and pattern persistence.
 
----
 
-## 🛠️ Technology Stack:
+![BeatMVP Preview](client/public/assets/images/use.gif)
 
-- **Frontend**: React, CSS
-- **Backend**: Node.js, Express
-- **Database**: PostgreSQL
-- **Sound Synthesis**: Tone.js (for sound generation)
-- **Authentication**: JWT (JSON Web Tokens)
-- **Version Control**: Git/GitHub
 
 ---
 
-## Features and Tasks Breakdown
+## Overview
 
-### 1️**User Authentication and Authorization**
-
-#### Login/Register:
-- Create user registration and login forms.
-- Use JWT tokens for user authentication.
-- Ensure protected routes are accessible only when authenticated.
-
-#### Tasks:
-- Set up a login route (`/api/auth/login`) and register route (`/api/auth/register`).
-- Implement JWT-based authentication middleware to protect routes like `/account`.
-
-#### Frontend:
-- Create `LoginForm` and `RegisterForm` components.
-- Use controlled form inputs for validation.
-- Handle login state and store JWT in local storage.
+- 4-row × 16-step sequencer grid
+- Real-time audio playback with Tone.js
+- Tempo, volume, and mute controls
+- JWT-based user authentication
+- Pattern saving and loading per user
+- REST API powered by Express and PostgreSQL
 
 ---
 
-### **Sequencer Grid & Tone.js Integration**
+## Functionality
 
-#### Grid Layout:
-- Create a 4x16 grid with buttons representing each instrument and time step.
-- Each button toggles the on/off state for that step and instrument.
+### Authentication
 
-#### Tone.js:
-- Load sound samples (e.g., kick, snare, hihat, clap) using `Tone.Player()`.
-- Set up `Tone.Transport` to handle playback timing and synchronize the grid’s playback with a 16-step rhythm.
+- `POST /api/auth/register` — Register new users
+- `POST /api/auth/login` — Log in and receive a token
+- Middleware protects authenticated routes
 
-#### Tasks:
-- In the `SequencerGrid` component, map through the grid state and generate buttons.
-- Set up Tone.js players for each sound.
-- Implement the grid toggle functionality to turn sounds on/off for each step.
+### Sequencer
 
-#### Patterns and Beats:
-- Allow users to choose different sound samples (e.g. Kick, Hat, Crash, Cowbell).
-- Enable users to save their custom beat patterns to their profile for later playback and editing.
+- Toggleable 4x16 grid for beat creation
+- Instruments: kick, snare, hi-hat, clap
+- Playback managed via Tone.Transport
+- Visual playhead synced to playback
 
----
+### Pattern Storage
 
-### **Collaborative Features (Future Optional Enhancement)**
-
-#### Real-time Collaboration (Optional):
-- Allow multiple users to collaborate on the same pattern using WebSockets or Firebase.
-- Track each user’s changes in real time (i.e., when one user toggles a step, it updates for everyone).
-
-#### Tasks:
-- Implement real-time syncing (for the future).
-- Store user-specific patterns in the backend database.
+- `POST /api/beat` — Save pattern with title and user ID
+- `GET /api/beat` — Fetch patterns for logged-in user
 
 ---
 
-### **Backend & Database**
+## Project Structure
 
-#### PostgreSQL:
-- Create a database with tables for storing users and patterns.
-- Patterns will be stored with a user ID to associate them with the correct user.
+The app is divided into backend and frontend layers.
 
-#### Endpoints:
-- `POST /api/patterns`: Save a new pattern.
-- `GET /api/patterns`: Fetch saved patterns for a user.
+### Backend (Express)
 
-#### Tasks:
-- Set up backend with Node.js and Express.
-- Create routes to handle pattern saving/loading.
-- Use `pg` library to interact with PostgreSQL.
+- `config/` — DB and JWT config
+- `controllers/` — Auth and pattern logic
+- `models/` — SQL queries for users and beats
+- `routes/` — API endpoints
+- `middleware/` — JWT protection
+- `db/schema.sql` — PostgreSQL schema
+
+### Frontend (React + Vite)
+
+- `components/` — Grid, controls, auth forms, navigation
+- `pages/` — Home, dashboard, pattern editor
+- `context/` — Auth and theme providers
+- `services/api.js` — API communication layer
+- `styles/` — SCSS modules (global, components)
+
+---
+
+## Possible / Planned Improvements
+
+- Real-time collaboration (WebSockets or Firebase)
+- Expandable instrument kits and custom samples
+- Pattern sharing and profile pages
+- Mobile responsiveness and touch support
+
+---
+
+---
+
+## Getting Started
+
+### Requirements
+
+- Node.js (v18+ recommended)
+- PostgreSQL database
+- npm or Yarn
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/connorwotko/beatmvp.git
+cd beatmvp
+```
+
+
+### 2. Backend
+```bash
+cd server
+npm install
+```
+Create a .env file in server/ with the following:
+```bash
+DATABASE_URL=postgresql://your_user:your_password@localhost:5432/beatmvp
+JWT_SECRET=your_jwt_secret
+```
+Then set up your database:
+```bash
+npm run init-db
+```
+
+Start the server:
+``` bash
+npm run start:dev
+```
+
+### 1. Frontend
+```bash
+cd ../client
+npm install
+npm run dev
+```
+
+
+## Author
+
+Connor D. Wotkowicz  
+GitHub: [github.com/connorwotko](https://github.com/connorwotko)  
+LinkedIn: [linkedin.com/in/connorwotko](https://www.linkedin.com/in/connorwotko)
+
+---
+
