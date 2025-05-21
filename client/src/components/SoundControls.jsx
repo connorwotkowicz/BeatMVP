@@ -63,7 +63,7 @@ const SoundControls = ({
         />
       </div>
 
-      <button onClick={onPlayToggle}>
+      <button className="play-button" onClick={onPlayToggle}>
         {isPlaying ? 'Stop' : 'Play'}
       </button>
     </div>

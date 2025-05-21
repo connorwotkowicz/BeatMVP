@@ -34,19 +34,12 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
-}
-
-button:hover {
-  border-color: #646cff;
 }
 
 button:focus,
@@ -67,36 +60,46 @@ button:focus-visible {
   }
 }
 body[data-theme=light] {
-  --bg-color: #f0f0f0;
-  --text-color: #111111;
-  --card-bg: linear-gradient(135deg, #dfe9f3 0%, #ffffff 100%);
-  --primary-accent: #4a90e2;
-  --border-color: rgba(0, 0, 0, 0.05);
-  --shadow-color: rgba(0, 0, 0, 0.1);
+  --bg-color: #eef2f7;
+  --text-color: #1e1e1e;
+  --card-bg: linear-gradient(135deg, #f9fbfc 0%, #ffffff 100%);
+  --primary-accent: #6c90c5;
+  --border-color: rgba(0, 0, 0, 0.06);
+  --shadow-color: rgba(0, 0, 0, 0.08);
   --input-bg: #ffffff;
-  --placeholder-color: rgba(0, 0, 0, 0.5);
+  --placeholder-color: rgba(20, 30, 40, 0.4);
 }
 
 body[data-theme=dark] {
-  --bg-color: #121212;
-  --text-color: #f5f5f5;
-  --card-bg: rgba(30, 30, 30, 0.5);
-  --primary-accent: #8ab4f8;
-  --border-color: rgba(255, 255, 255, 0.05);
-  --shadow-color: rgba(0, 0, 0, 0.3);
-  --input-bg: #1e1e1e;
-  --placeholder-color: rgba(255, 255, 255, 0.5);
+  --bg-color: #0f1115;
+  --text-color: #e0e6ec;
+  --card-bg: #1c1f24;
+  --primary-accent: #a1c2eb;
+  --border-color: rgba(255, 255, 255, 0.06);
+  --shadow-color: rgba(0, 0, 0, 0.4);
+  --input-bg: #1a1d22;
+  --placeholder-color: rgba(200, 210, 220, 0.5);
 }
 
 .dashboard-page {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   min-height: 100vh;
   background-color: var(--bg-color);
   background: var(--card-bg);
   background-size: cover;
   background-position: center;
   color: var(--text-color);
+  padding-top: 40px;
+  padding-left: 15px;
+}
+
+.dashboard-title {
+  font-size: 1.1rem;
+  border-radius: 4px;
+  border-bottom: 1px solid var(--text-color);
+  align-items: center;
+  font-weight: 400;
 }
 
 .account-container {
@@ -111,28 +114,31 @@ body[data-theme=dark] {
   font-weight: 400;
   margin-bottom: 2rem;
   color: var(--text-color);
-  text-align: center;
+  text-align: left;
+}
+
+.sub-title {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-color);
 }
 
 .account-section {
-  background: white;
-  border-radius: 6px;
-  box-shadow: 0 1px 2px var(--shadow-color);
   padding: 1.5rem;
   margin-bottom: 2rem;
   transition: 0.3s ease;
 }
 
-.section-header {
-  font-size: 1.2rem;
-  font-weight: 500;
+.section-header h3 {
+  font-size: 1.3rem;
+  font-weight: 400;
   margin-bottom: 1rem;
-  color: black;
+  color: var(--text-color);
 }
 
-.user-info p {
+.user-info p, .info-cont p {
   font-size: 0.9rem;
-  color: #111;
+  color: var(--text-color);
   margin: 0.25rem 0;
 }
 
@@ -164,19 +170,9 @@ body[data-theme=dark] {
 
 .account-link-buddy {
   display: block;
-  text-align: center;
+  text-align: left;
   padding-top: 1rem;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.checked-books-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #f9f9f9;
-  border-radius: 6px;
-  padding: 1rem;
-  margin-top: 1rem;
 }
 
 .check-title {
@@ -203,10 +199,14 @@ body[data-theme=dark] {
 .sequencer-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  text-align: center;
+  align-items: left;
+  justify-content: left;
+  text-align: left;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .grid {
@@ -225,24 +225,25 @@ body[data-theme=dark] {
   height: 24px;
   margin: 2px;
   border: none;
-  background-color: #222;
+  background-color: var(--placeholder-color);
 }
 .cell.active {
-  background-color: #4caf50;
+  background: linear-gradient(90deg, rgba(0, 255, 221, 0.5490196078), rgba(7, 121, 147, 0.7098039216));
 }
 .cell.current-step {
-  border: 2px solid yellow;
+  border: 2px solid rgb(0, 119, 223);
 }
 
 .tempo-control {
   margin: 1rem 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
+  font-size: 12px;
 }
 .tempo-control label {
   margin-bottom: 0.5rem;
-  color: white;
+  color: var(--text-color);
 }
 .tempo-control input[type=range] {
   width: 40vh;
@@ -266,11 +267,101 @@ body[data-theme=dark] {
   display: flex;
 }
 
+.pattern-editor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 1rem;
+  background-color: var(--bg-color);
+  min-height: 100vh;
+  color: var(--text-color);
+}
+
+.editor-card {
+  border-radius: 12px;
+  padding: 2.5rem;
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  gap: 1.5rem;
+}
+.editor-card h1 {
+  font-weight: 400;
+  text-align: left;
+}
+
+.title-input {
+  width: 300px;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--text-color);
+  border-radius: 4px;
+  font-size: 1.1rem;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+}
+
+.save-button,
+.clear-button,
+.play-synth-button {
+  margin-top: 1rem;
+  font-size: 1rem;
+  width: 300px;
+  color: var(--text-color);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.save-button:hover,
+.clear-button:hover,
+.play-synth-button:hover {
+  background-color: var(--primary-accent), 10%;
+}
+
+.editor-message {
+  margin-top: 1rem;
+  font-weight: 500;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.loading-message {
+  padding: 4rem;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.volume-control {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.tempo-control {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 10;
+  color: var(--text-color);
+  font-weight: 300;
+  text-align: left;
+}
+
+.play-button, .mute-button {
+  display: flex;
+  color: var(--text-color);
+}
+
 .login-page,
 .register-page {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   min-height: 100vh;
   padding-top: 40px;
   background-color: var(--bg-color);
@@ -336,6 +427,15 @@ body[data-theme=dark] {
     transform: translateY(0);
   }
 }
+.account-dropdown-menu.hidden {
+  display: none;
+}
+
+.account-dropdown-menu.show {
+  display: block;
+  animation: dropdownFadeIn 0.3s ease forwards;
+}
+
 @keyframes slide_up {
   from {
     transform: translateY(60px);
@@ -418,13 +518,12 @@ body[data-theme=dark] {
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   z-index: 100;
   padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow-x: hidden;
+  overflow-x: visible;
   transition: background 0.3s ease;
 }
 .navbar .nav-container {
@@ -450,10 +549,11 @@ body[data-theme=dark] {
   margin-left: 0;
 }
 .navbar .lognav-logo {
-  font-size: 20px;
-  font-weight: 700;
+  position: flex;
+  font-size: 18px;
+  font-weight: 500;
   letter-spacing: 2px;
-  background: linear-gradient(90deg, #ffd700, #ffa500);
+  background: white;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -494,9 +594,9 @@ body[data-theme=dark] {
 }
 .navbar a,
 .navbar button {
-  color: white;
-  font-weight: 400;
-  font-size: 15px;
+  color: rgb(226, 226, 226);
+  font-weight: 300;
+  font-size: 14px;
   padding: 8px 12px;
   background: transparent;
   border: none;
@@ -507,7 +607,7 @@ body[data-theme=dark] {
 .navbar a:hover, .navbar a:focus,
 .navbar button:hover,
 .navbar button:focus {
-  color: #ffd700;
+  color: #ffffff;
   outline: none;
 }
 @media (max-width: 768px) {
@@ -541,7 +641,109 @@ body[data-theme=dark] {
   height: 15px;
 }
 .theme-toggle-button:hover {
-  transform: scale(1.1);
+  color: #ffffff;
+  outline: none;
+}
+
+/* ===============================
+   ACCOUNT DROPDOWN CONTAINER
+=============================== */
+.account-dropdown {
+  position: relative;
+  display: inline-block;
+  padding-top: 5.5px;
+}
+.account-dropdown .account-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: 0.5px solid white;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.account-dropdown .account-avatar:hover {
+  transform: scale(1.05);
+}
+
+/* ===============================
+   DROPDOWN MENU STYLES
+=============================== */
+.account-dropdown-menu {
+  background-color: white !important;
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 180px;
+  padding: 0.5rem 0;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 6px;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.account-dropdown-menu .dropdown-link {
+  display: block;
+  padding: 10px 10px;
+  font-size: 0.8rem;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+.account-dropdown-menu .dropdown-link:hover {
+  background-color: #f1f1f1;
+  color: black;
+}
+.account-dropdown-menu .dropdown-link.logout-button {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.account-dropdown-menu.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  visibility: visible;
+}
+
+/* ===============================
+   ANIMATION KEYFRAME
+=============================== */
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.account-dropdown-menu[data-theme=light] {
+  background-color: #ffffff;
+  color: #000;
+}
+.account-dropdown-menu[data-theme=light] .dropdown-link {
+  color: #222;
+}
+.account-dropdown-menu[data-theme=light] .dropdown-link:hover {
+  background-color: #f6f6f6;
+  color: #000;
+}
+.account-dropdown-menu[data-theme=light] .logout-button {
+  color: #222;
+}
+.account-dropdown-menu[data-theme=light] .logout-button:hover {
+  background-color: #f6f6f6;
+  color: #000;
 }
 
 .account-dropdown {
@@ -549,12 +751,12 @@ body[data-theme=dark] {
 }
 .account-dropdown .account-avatar {
   width: 30px;
-  margin-top: 4px;
+  margin-top: 6px;
   height: 30px;
   border-radius: 50%;
   -o-object-fit: cover;
      object-fit: cover;
-  border: 2px solid var(--text-color);
+  margin-bottom: 8px;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
@@ -566,12 +768,10 @@ body[data-theme=dark] {
   top: 50px;
   right: 0;
   width: 200px;
-  padding: 10px 0;
   background-color: var(--nav);
   -webkit-backdrop-filter: blur(15px);
           backdrop-filter: blur(15px);
-  border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
   z-index: 150;
   opacity: 0;
   transform: translateY(-10px);
@@ -606,4 +806,71 @@ body[data-theme=dark] {
 .account-dropdown .account-dropdown-menu .dropdown-link-button:focus {
   background: rgba(255, 255, 255, 0.2);
   outline: none;
+}
+
+.continue-button {
+  font-size: 15px;
+  text-align: center;
+}
+
+.continue-button:hover {
+  text-decoration: underline;
+}
+
+.welcome-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: breathe 5s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+}
+
+.welcome-header {
+  font-size: 3rem;
+  margin-top: 6em;
+  text-align: center;
+  font-weight: 400;
+  color: transparent;
+  background: linear-gradient(70deg, #a4d3ff, #a421b0, #6dd5ed, #003b5c);
+  background-size: 300% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: shimmer 6.5s linear infinite;
+  transition: opacity 0.4s ease-in-out;
+  line-height: 1.3;
+  padding-bottom: 0.25rem;
+  transform: none;
+  transform-origin: center;
+  -webkit-font-smoothing: antialiased;
+  overflow: visible;
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+@keyframes breathe {
+  0% {
+    transform: scale(0.97);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.03);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.97);
+    opacity: 0.85;
+  }
+}
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }

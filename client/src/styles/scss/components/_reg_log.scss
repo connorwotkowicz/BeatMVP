@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   min-height: 100vh;
   padding-top: 40px;
   background-color: var(--bg-color);
@@ -70,4 +71,13 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.account-dropdown-menu.hidden {
+  display: none;
+}
+
+.account-dropdown-menu.show {
+  display: block;
+  animation: dropdownFadeIn 0.3s ease forwards;
 }

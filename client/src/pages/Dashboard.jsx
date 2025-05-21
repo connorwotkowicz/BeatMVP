@@ -81,9 +81,9 @@ console.log("User in Dashboard:", user);
 
         
 
-                 <Link to="#" className="account-link-buddy">
+                 {/* <Link to="#" className="account-link-buddy">
             <span className="shiny-text">Manage myBeats</span>
-          </Link> 
+          </Link>  */}
             </div>
           </div>
         </div>
