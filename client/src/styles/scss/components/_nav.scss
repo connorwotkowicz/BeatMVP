@@ -229,37 +229,37 @@
 /* ===============================
    ANIMATION KEYFRAME
 =============================== */
-@keyframes dropdownFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+// @keyframes dropdownFadeIn {
+//   from {
+//     opacity: 0;
+//     transform: translateY(-10px);
+//   }
+//   to {
+//     opacity: 1;
+//     transform: translateY(0);
+//   }
+// }
 
 
-.account-dropdown-menu[data-theme="light"] {
-  background-color: #ffffff;
-  color: #000;
+// .account-dropdown-menu[data-theme="light"] {
+//   background-color: #ffffff;
+//   color: #000;
 
-  .dropdown-link {
-    color: #222;
+//   .dropdown-link {
+//     color: #222;
 
-    &:hover {
-      background-color: #f6f6f6;
-      color: #000;
-    }
-  }
+//     &:hover {
+//       background-color: #f6f6f6;
+//       color: #000;
+//     }
+//   }
 
-  .logout-button {
-    color: #222;
+//   .logout-button {
+//     color: #222;
 
-    &:hover {
-      background-color: #f6f6f6;
-      color: #000;
-    }
-  }
-}
+//     &:hover {
+//       background-color: #f6f6f6;
+//       color: #000;
+//     }
+//   }
+// }

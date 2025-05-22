@@ -83,7 +83,7 @@ export default function Dashboard() {
             <div className="quick-card">
               <h4>Go to Sequencer</h4>
               <p>Edit a new pattern</p>
-              <Link to='/pattern-editor'>Launch Sequencer</Link>
+              <Link to='/editor'>Launch Sequencer</Link>
             </div>
             <div className="quick-card">
               <h4>Account Settings</h4>

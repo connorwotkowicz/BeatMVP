@@ -47,7 +47,7 @@ const Navigation = () => {
           ) : (
             <>
               {/* <Link to="/dashboard" className="nav-button">Dashboard</Link> */}
-              <Link to="/editor" className="nav-button">Editor</Link> 
+              <Link to="/editor" className="nav-button">Sequencer</Link> 
 
               {/* <button
                 className="theme-toggle-button"
@@ -75,11 +75,13 @@ const Navigation = () => {
                   }, 200); // 200ms delay
                 }}
               >
-                <img
-                  src={user?.profilePic || defaultProfilePic}
-                  alt="Profile"
-                  className="account-avatar"
-                />
+           <Link to="/dashboard">
+  <img
+    src={user?.profilePic || defaultProfilePic}
+    alt="Profile"
+    className="account-avatar"
+  />
+</Link>
 
          <div
   className={`account-dropdown-menu ${profileDropdownVisible ? "show" : ""}`}
