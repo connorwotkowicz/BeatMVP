@@ -25,6 +25,7 @@ BeatMVP is a simple full-stack web application for building, playing, and saving
 - JWT-based user authentication
 - Pattern saving and loading per user
 - REST API powered by Express and PostgreSQL
+- SASS styling 
 
 ---
 
