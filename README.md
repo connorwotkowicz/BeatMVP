@@ -19,7 +19,7 @@ BeatMVP is a simple full-stack web application for building, playing, and saving
 
 ## Overview
 
-- 4-row × 16-step sequencer grid
+- Sequencer grid
 - Real-time audio playback with Tone.js
 - Tempo, volume, and mute controls
 - JWT-based user authentication
