@@ -1,125 +1,265 @@
-.dashboard-page {
+/* =======================================
+   ACCOUNT PAGE WRAPPER
+======================================= */
+.account-page {
   display: flex;
-  justify-content: left;
+  flex-direction: column;
   min-height: 100vh;
-  background-color: var(--bg-color);
-  background: var(--card-bg);
-  background-size: cover;
-  background-position: center;
-  color: var(--text-color);
-  padding-top: 40px;
-  padding-left: 15px
-}
+  background: var(--bg-color);
 
-.dashboard-title {
-  font-size: 1.1rem;
-  border-radius: 4px;
-  border-bottom: 1px solid var(--text-color);
-  align-items: center;
-  font-weight: 400;
+  .stripe {
+    width: 100%;
+    padding-top: 2rem;
 
+    &.default {
+      background-color: #fafcfe;
+    }
 
-}
+    &.grey {
+      background: linear-gradient(135deg, #dfe9f3 0%, #ffffff 100%);
+    }
 
-
-
-.account-container {
-  width: 100%;
-  max-width: 1000px;
-  padding: 2rem;
-  box-sizing: border-box;
-}
-
-.account-title {
-  font-size: 2rem;
-  font-weight: 400;
-  margin-bottom: 2rem;
-  color: var(--text-color);
-  text-align: left;
-}
-
-.sub-title {
-  font-size: 1rem;
-  font-weight: 400;
-  color: var(--text-color)
-}
-
-.account-section {
-
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  transition: 0.3s ease;
-}
-
-.section-header h3 {
-  font-size: 1.3rem;
-  font-weight: 400;
-  margin-bottom: 1rem;
-  color: var(--text-color)
-}
-
-.user-info, .info-cont {
-  p {
-    font-size: 0.9rem;
-
-    color: var(--text-color);
-    margin: 0.25rem 0;
+    &.greeting-stripe {
+      padding-top: 1rem;
+      padding-bottom: 1.5rem;
+    }
   }
 }
 
-.user-label {
-  font-weight: 500;
-  color: #666;
-  margin-top: 0.5rem;
+/* =======================================
+   ACCOUNT TITLE & SIGNOUT
+======================================= */
+.account-title {
+  color: black;
+  font-weight: normal;
+  font-size: 1.2rem;
 }
 
-.user-value {
-  font-weight: 400;
-  color: #111;
+.account-subtitle {
+  color: black;
+  font-weight: normal;
+  font-size: 1rem;
 }
 
-.account-link,
-.logout-link,
-.account-link-buddy {
-  font-size: 0.95rem;
+button.signout-button {
+  align-self: flex-end;
+  margin-bottom: 1.5rem;
+  margin-right: 0;
+  font-size: 0.9rem;
   color: var(--primary-accent);
-  text-decoration: none;
-  display: inline-block;
-  margin-top: 1rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 
   &:hover {
     text-decoration: underline;
   }
 }
 
-.account-link-buddy {
-  display: block;
-  text-align: left;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+/* =======================================
+   ACCOUNT WRAPPER & GREETING
+======================================= */
+.account-wrapper {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
+
+  &.greeting-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+
+  .greeting {
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 0;
+    color: black;
+  }
+
+  .sub-greeting {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    color: rgba(0, 0, 0, 0.5);
+  }
 }
 
+/* =======================================
+   PURCHASES SECTION
+======================================= */
+.purchases-section {
+  margin-bottom: 4rem;
+  max-width: 1000px;
 
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: black;
+    font-weight: normal;
+  }
 
+  .purchase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    justify-content: start;
+    gap: 1.5rem;
+    padding: 0;
+    box-sizing: border-box;
 
-.check-title {
-  font-size: 1rem;
-  font-weight: 500;
-  color: #111;
+    @media (max-width: 1024px) {
+      padding: 0 1rem;
+    }
+  }
+
+  .album-card {
+    padding: 1rem;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+
+    .title {
+      font-weight: 500;
+      color: #111111;
+      font-size: 0.75rem;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
 }
 
-.view-books-btn {
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--primary-accent);
-  border: 1px solid var(--primary-accent);
-  padding: 0.4rem 0.75rem;
-  border-radius: 4px;
-  text-decoration: none;
-  transition: background 0.3s ease;
+/* =======================================
+   QUICK LINKS SECTION
+======================================= */
+.quick-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
 
-  &:hover {
-    background: var(--primary-accent);
-    color: white;
+  .quick-card {
+    background: white;
+    flex: 1;
+    min-width: 260px;
+    padding: 1.5rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 1px 2px var(--shadow-color);
+    transition: 0.2s;
+
+    h4 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: #111111;
+    }
+
+    p {
+      margin-bottom: 0.5rem;
+      color: #111111;
+    }
+
+    a {
+      font-size: 0.9rem;
+      color: var(--primary-accent);
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+/* =======================================
+   ACCOUNT SETTINGS SECTION
+======================================= */
+.account-settings {
+  margin-bottom: 4rem;
+
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: black;
+    font-weight: 400;
+  }
+
+  .settings-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 3rem;
+    row-gap: 2rem;
+
+    .settings-block {
+      background: none;
+      padding: 0;
+      box-shadow: none;
+      border-radius: 0;
+
+      h4 {
+        font-size: 1.2rem;
+        font-weight: 430;
+        margin-bottom: 0.25rem;
+        color: black;
+      }
+
+      p {
+        font-size: 0.8rem;
+        margin: 0;
+        color: black;
+        line-height: 1.6;
+      }
+
+      a {
+        display: inline-block;
+        margin-top: 0.5rem;
+        font-size: 0.9rem;
+        color: var(--primary-accent);
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      &.full-width {
+        grid-column: 1 / -1;
+        margin-top: 1rem;
+      }
+    }
+  }
+}
+
+/* =======================================
+   RESPONSIVE STYLES
+======================================= */
+@media (max-width: 768px) {
+  .account-wrapper,
+  .account-wrapper.greeting-wrap,
+  .purchases-section,
+  .quick-links,
+  .account-settings {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .account-settings .settings-columns {
+    column-gap: 1.5rem;
   }
 }
