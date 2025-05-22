@@ -39,7 +39,7 @@ BeatMVP is a simple full-stack web application for building, playing, and saving
 
 ### Sequencer
 
-- Toggleable 4x16 grid for beat creation
+- Toggleable grid for beat creation
 - Instruments: kick, snare, hi-hat, clap
 - Playback managed via Tone.Transport
 - Visual playhead synced to playback
@@ -72,12 +72,13 @@ BeatMVP is a simple full-stack web application for building, playing, and saving
 
 ---
 
-### Possible Improvements
+### Possible / Planned Improvements
 
 - Real-time collaboration (WebSockets or Firebase)
 - Expandable instrument kits and custom samples
 - Pattern sharing and profile pages
-- Mobile responsiveness and touch support
+- Greater mobile responsiveness and touch support
+- Further, more calibrated styling 
 
 ---
 
