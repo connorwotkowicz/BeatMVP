@@ -47,16 +47,23 @@ router.post("/login", async (req, res) => {
   }
 });
 
-
 router.get("/me", authenticateToken, async (req, res) => {
+  console.log("Decoded token user object:", req.user);
+
   try {
+    if (!req.user?.id) {
+      return res.status(400).json({ message: "Token missing user ID." });
+    }
+
     const user = await getUserById(req.user.id);
     if (!user) return res.status(404).json({ message: "User not found." });
 
     res.json({ id: user.id, email: user.email });
   } catch (err) {
+    console.error("Error in /me:", err);
     res.status(500).json({ message: "Failed to fetch user data." });
   }
 });
+
 
 module.exports = router;

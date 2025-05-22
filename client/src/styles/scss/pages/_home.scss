@@ -1,10 +1,28 @@
+.continue-button-containr {
+  align-items: center;
+  justify-content: center;
+
+
+}
 .continue-button {
-    font-size: 15px;
-  text-align: center;
-
+    font-size: 45px;
+    text-align: center;
+    width: auto;
+    
+  
 }
 
-.continue-button:hover {
-    text-decoration: underline;
-}
+    :hover,
+    :focus {
+      // color: #ffffff;
+      outline: none;
+    }
+  
 
+
+
+
+    .welcome-page {
+      background: var(--bg-color);
+      height: 100vh
+    }

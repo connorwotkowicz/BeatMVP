@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 const messages = [
-  "Welcome to BeatMVP",
-  "Press enter",
-  "... or click below"
+  "Welcome to BeatMVP"
 ];
 
 const WelcomeHeader = () => {

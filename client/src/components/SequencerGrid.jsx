@@ -125,8 +125,9 @@ useEffect(() => {
 
 
 
-  return (
-    <div className="sequencer-container">
+return (
+  <div className="sequencer-container">
+    <div className="grid-scroll-wrapper">
       <div className="grid">
         {controlledPattern.map((row, rIdx) => (
           <div key={rIdx} className="row-wrapper">
@@ -147,31 +148,32 @@ useEffect(() => {
           </div>
         ))}
       </div>
-
-   <SoundControls
-  tempo={tempo}
-  setTempo={setTempo}
-  isPlaying={isPlaying}
-  onPlayToggle={isPlaying ? stopTransport : startTransport}
-  volume={volume}
-  setVolume={setVolume}
-  isMuted={isMuted}
-  setIsMuted={setIsMuted}
-/>
-
-      <button className="clear-button" onClick={clearGrid}>Clear Grid</button>
-
-      <button className="play-synth-button"
-        onClick={async () => {
-          await Tone.start();
-          const synth = new Tone.Synth().toDestination();
-          synth.triggerAttackRelease('C3', '8n');
-        }}
-      >
-        Play Synth Test
-      </button>
     </div>
-  );
-};
+
+    <SoundControls
+      tempo={tempo}
+      setTempo={setTempo}
+      isPlaying={isPlaying}
+      onPlayToggle={isPlaying ? stopTransport : startTransport}
+      volume={volume}
+      setVolume={setVolume}
+      isMuted={isMuted}
+      setIsMuted={setIsMuted}
+    />
+
+    <button className="clear-button" onClick={clearGrid}>Clear Grid</button>
+
+    <button className="play-synth-button"
+      onClick={async () => {
+        await Tone.start();
+        const synth = new Tone.Synth().toDestination();
+        synth.triggerAttackRelease('C3', '8n');
+      }}
+    >
+      Play Synth Test
+    </button>
+  </div>
+);
+}
 
 export default SequencerGrid;

@@ -27,7 +27,7 @@ const Welcome = () => {
       <WelcomeHeader />
       <div className="continue-button-container">
         <div className="continue-button">
-          <Link to="/editor">Continue</Link>
+          <Link to="/editor">⟶</Link>
         </div>
       </div>
     </div>

@@ -37,12 +37,7 @@ export default function Login() {
 
   return (
     <div className="login-page">
-      <div className="logo-wrapper">
-        <Link to="/books" className="lognav-logo">
-          BeatMVP
-        </Link>
-      </div>
-
+  
       <div className="login-container">
         <div className="my-book">
           <h3>myBeats</h3>
@@ -80,7 +75,7 @@ export default function Login() {
               />
             </div>
             <button type="submit" className="sign-button">
-              Sign in
+             <p> Sign in </p>
             </button>
           </form>
         </div>
