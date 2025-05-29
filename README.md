@@ -9,7 +9,7 @@
 ![Vite](https://img.shields.io/badge/build-Vite-646CFF?logo=vite&logoColor=white)
 ![SCSS](https://img.shields.io/badge/styles-SCSS-CC6699?logo=sass&logoColor=white)
 
-BeatMVP is a simple full-stack web application for building, playing, and saving drum patterns using a 4×16 step sequencer grid. It features real-time audio playback and pattern persistence.
+BeatMVP is a simple full-stack web application for building, playing, and saving drum patterns using a basic sequencer grid. It features real-time audio playback and pattern persistence. 
 
 
 
@@ -19,12 +19,13 @@ BeatMVP is a simple full-stack web application for building, playing, and saving
 
 ## Overview
 
-- 4-row × 16-step sequencer grid
+- Sequencer grid
 - Real-time audio playback with Tone.js
 - Tempo, volume, and mute controls
 - JWT-based user authentication
 - Pattern saving and loading per user
 - REST API powered by Express and PostgreSQL
+- SASS styling 
 
 ---
 
@@ -38,7 +39,7 @@ BeatMVP is a simple full-stack web application for building, playing, and saving
 
 ### Sequencer
 
-- Toggleable 4x16 grid for beat creation
+- Toggleable grid for beat creation
 - Instruments: kick, snare, hi-hat, clap
 - Playback managed via Tone.Transport
 - Visual playhead synced to playback
@@ -71,12 +72,13 @@ BeatMVP is a simple full-stack web application for building, playing, and saving
 
 ---
 
-### Possible Improvements
+### Possible / Planned Improvements
 
 - Real-time collaboration (WebSockets or Firebase)
 - Expandable instrument kits and custom samples
 - Pattern sharing and profile pages
-- Mobile responsiveness and touch support
+- Greater mobile responsiveness and touch support
+- Further, more calibrated styling 
 
 ---
 
@@ -128,7 +130,7 @@ npm run dev
 ## Author
 
 Connor D. Wotkowicz   
-LinkedIn: [linkedin.com/in/connorwotko](https://www.linkedin.com/in/wotkowicz)
+LinkedIn: [linkedin.com/in/wotkowicz](https://www.linkedin.com/in/wotkowicz)
 
 ---
 
