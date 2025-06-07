@@ -2,6 +2,9 @@ import { createContext, useState, useEffect } from "react";
 
 export const AuthContext = createContext();
 
+const BACKEND_URL =
+  process.env.VITE_BACKEND_URL || "http://localhost:3000";
+
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(localStorage.getItem("token") || "");
@@ -9,7 +12,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     if (!token) return;
 
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/auth/me`, {
+    fetch(`${BACKEND_URL}/api/auth/me`, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then(async (res) => {
