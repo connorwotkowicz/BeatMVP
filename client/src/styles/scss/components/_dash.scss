@@ -32,7 +32,7 @@
    ACCOUNT TITLE & SIGNOUT
 ======================================= */
 .account-title {
-  color: black;
+  color: var(--text-color);
   font-weight: normal;
   font-size: 1.2rem;
 }
@@ -83,13 +83,13 @@ button.signout-button {
     font-size: 2rem;
     font-weight: 400;
     margin: 0;
-    color: black;
+    color: var(--text-color)
   }
 
   .sub-greeting {
     font-size: 1rem;
     margin-top: 0.5rem;
-    color: rgba(0, 0, 0, 0.5);
+    color: var(--text-color)
   }
 }
 
@@ -103,7 +103,7 @@ button.signout-button {
   h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: black;
+    color: var(--text-color);
     font-weight: normal;
   }
 
@@ -117,6 +117,10 @@ button.signout-button {
 
     @media (max-width: 1024px) {
       padding: 0 1rem;
+    }
+
+    p {
+      color: var(--text-color)
     }
   }
 
@@ -198,7 +202,7 @@ button.signout-button {
   h3 {
     font-size: 1.5rem;
     margin-bottom: 2rem;
-    color: black;
+    color: var(--text-color);
     font-weight: 400;
   }
 
@@ -218,13 +222,13 @@ button.signout-button {
         font-size: 1.2rem;
         font-weight: 430;
         margin-bottom: 0.25rem;
-        color: black;
+        color: var(--text-color)
       }
 
       p {
         font-size: 0.8rem;
         margin: 0;
-        color: black;
+        color: var(--text-color);
         line-height: 1.6;
       }
 
