@@ -129,8 +129,12 @@ npm run dev
 
 ## Author
 
-Connor D. Wotkowicz   
-LinkedIn: [linkedin.com/in/wotkowicz](https://www.linkedin.com/in/wotkowicz)
+## Author
+
+- Connor Wotkowicz
+- - [GitHub](https://github.com/connorwotkowicz)
+- - [LinkedIn](https://www.linkedin.com/in/wotkowicz)
+
 
 ---
 
