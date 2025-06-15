@@ -13,7 +13,7 @@
 
 
 
-BeatMVP is a simple full-stack web application for building, playing, and saving drum patterns using a basic sequencer grid. It features real-time audio playback and pattern persistence. 
+This project has a Vite version and a Next verison. 
 
 
 
