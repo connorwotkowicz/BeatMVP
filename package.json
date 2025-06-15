@@ -10,7 +10,10 @@
     "build": "next build",
     "start": "next start",
     "init-db": "node server/scripts/initDb.js",
-    "test:next": "cd nextbeatmvp && npx jest"
+    "test:next": "cd nextbeatmvp && npx jest",
+     "deploy:prod": "vercel --prod -b main",
+  "deploy:staging": "vercel --target=staging -b develop",
+  "deploy:preview": "vercel --preview"
   },
   "repository": {
     "type": "git",
