@@ -18,7 +18,7 @@ html, body {
   padding: 0;
   width: 100vw;
   min-height: 100vh;
-  overflow-x: hidden; // ✅ Prevent horizontal scroll
+  overflow-x: hidden; 
   background-color: var(--bg-color);
   box-sizing: border-box;
 }

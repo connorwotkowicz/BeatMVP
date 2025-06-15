@@ -1,0 +1,21 @@
+body[data-theme="light"] {
+  --bg-color: #eef2f7; 
+  --text-color: #1e1e1e; 
+  --card-bg: linear-gradient(135deg, #f9fbfc 0%, #ffffff 100%);
+  --primary-accent: #6c90c5; 
+  --border-color: rgba(0, 0, 0, 0.06);
+  --shadow-color: rgba(0, 0, 0, 0.08);
+  --input-bg: #ffffff;
+  --placeholder-color: rgba(20, 30, 40, 0.4);
+}
+
+body[data-theme="dark"] {
+  --bg-color: #0f1115; 
+  --text-color: #e0e6ec;
+  --card-bg: #1c1f24; 
+  --primary-accent: #a1c2eb; 
+  --border-color: rgba(255, 255, 255, 0.06);
+  --shadow-color: rgba(0, 0, 0, 0.4);
+  --input-bg: #1a1d22;
+  --placeholder-color: rgba(200, 210, 220, 0.5);
+}

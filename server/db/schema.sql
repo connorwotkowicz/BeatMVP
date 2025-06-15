@@ -1,18 +1,19 @@
 
-DROP TABLE IF EXISTS patterns;
-DROP TABLE IF EXISTS beats;
-DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS patterns CASCADE;
+DROP TABLE IF EXISTS beats CASCADE;
+DROP TABLE IF EXISTS users CASCADE;
 
--- USERS
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
 CREATE TABLE users (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   email VARCHAR(255) UNIQUE NOT NULL,
   password TEXT NOT NULL
 );
 
 
 CREATE TABLE beats (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   user_id UUID REFERENCES users(id) ON DELETE CASCADE, 
   title TEXT NOT NULL,
   audio_url TEXT,
@@ -22,7 +23,7 @@ CREATE TABLE beats (
 
 
 CREATE TABLE patterns (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   user_id UUID REFERENCES users(id) ON DELETE CASCADE,
   name TEXT NOT NULL,
   data JSONB NOT NULL,

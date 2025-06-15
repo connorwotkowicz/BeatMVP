@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "vite",
-   "test": "jest",
+    "devtools": "react-devtools",
+    "test": "jest",
     "start:dev": "nodemon server/index.js",
-    "start": "node server/index.js",
-    "init-db": "node server/scripts/initDb.js"
-  
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "init-db": "node server/scripts/initDb.js",
+    "test:next": "cd nextbeatmvp && npx jest"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,7 @@
   },
   "homepage": "https://github.com/sandpitt-turtle/Collaborative-Beat-Sketchpad-Solo-MVP-#readme",
   "dependencies": {
+    "@supabase/supabase-js": "^2.50.0",
     "bcrypt": "^5.1.1",
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
@@ -30,16 +33,18 @@
     "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.511.0",
     "mongoose": "^8.13.0",
-    "pg": "^8.14.1",
+    "pg": "^8.16.0",
     "pg-hstore": "^2.3.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-router-dom": "^7.4.0",
     "sequelize": "^6.37.6",
     "tone": "^15.0.4"
   },
   "description": "",
   "devDependencies": {
+    "@babel/preset-env": "^7.27.2",
+    "@babel/preset-react": "^7.27.1",
+    "babel-jest": "^30.0.0",
     "concurrently": "^9.1.2",
     "jest": "^29.7.0",
     "nodemon": "^2.0.15",

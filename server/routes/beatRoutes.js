@@ -11,12 +11,12 @@ router.post("/", authenticateToken, async (req, res) => {
   }
 
   try {
-    const jsonData = JSON.stringify(data); // 
+    const jsonData = JSON.stringify(data);
     console.log("Saving beat with:", { user_id: req.user.id, title, data });
 
     const result = await db.query(
       "INSERT INTO beats (user_id, title, data) VALUES ($1, $2, $3) RETURNING *",
-      [req.user.id, title, jsonData] 
+      [req.user.id, title, jsonData]
     );
 
     console.log("Insert result:", result.rows[0]);
@@ -26,7 +26,6 @@ router.post("/", authenticateToken, async (req, res) => {
     res.status(500).json({ message: "Failed to save beat.", error: err.message });
   }
 });
-
 
 router.get("/", authenticateToken, async (req, res) => {
   try {
@@ -40,7 +39,6 @@ router.get("/", authenticateToken, async (req, res) => {
     res.status(500).json({ message: "Failed to fetch beats." });
   }
 });
-
 
 router.get("/:id", authenticateToken, async (req, res) => {
   const { id } = req.params;

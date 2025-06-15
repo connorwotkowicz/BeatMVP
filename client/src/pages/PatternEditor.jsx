@@ -1,17 +1,21 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import SequencerGrid from "../components/SequencerGrid";
-import API from "../services/api";
+'use client';
 
-const PatternEditor = () => {
-  const { beatId } = useParams();
+import { useEffect, useState } from 'react';
+import { useParams, useRouter } from 'next/navigation';
+import SequencerGrid from '@/components/SequencerGrid';
+import API from '@/services/api';
 
-  const [title, setTitle] = useState("");
+export default function PatternEditor() {
+  const params = useParams(); 
+  const beatId = params?.beatId;
+  const router = useRouter();
+
+  const [title, setTitle] = useState('');
   const [pattern, setPattern] = useState(Array(4).fill().map(() => Array(16).fill(false)));
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState('');
   const [showSaveAsNewPopup, setShowSaveAsNewPopup] = useState(false);
-  const [newTitle, setNewTitle] = useState("");
+  const [newTitle, setNewTitle] = useState('');
   const [localBeatId, setLocalBeatId] = useState(null);
 
   useEffect(() => {
@@ -22,58 +26,50 @@ const PatternEditor = () => {
           setTitle(res.data.beat.title);
           setPattern(res.data.beat.data);
         })
-        .catch(() => setMessage("Failed to load beat."))
+        .catch(() => setMessage('Failed to load beat.'))
         .finally(() => setLoading(false));
     }
   }, [beatId]);
 
   const handleSaveNew = async () => {
-    if (!title.trim()) {
-      setMessage("Please enter a title.");
-      return;
-    }
-
+    if (!title.trim()) return setMessage('Please enter a title.');
     try {
-      const res = await API.post("/beats", { title, data: pattern });
-      setMessage("Beat saved.");
+      const res = await API.post('/beats', { title, data: pattern });
+      setMessage('Beat saved.');
       setLocalBeatId(res.data.beat.id);
     } catch {
-      setMessage("Failed to save beat.");
+      setMessage('Failed to save beat.');
     }
   };
 
   const handleUpdateExisting = async () => {
     try {
       await API.put(`/beats/${beatId || localBeatId}`, { title, data: pattern });
-      setMessage("Beat updated.");
+      setMessage('Beat updated.');
     } catch {
-      setMessage("Failed to update beat.");
+      setMessage('Failed to update beat.');
     }
   };
 
   const handleSaveAsNew = async () => {
-    if (!newTitle.trim()) {
-      setMessage("Please enter a new title.");
-      return;
-    }
-
+    if (!newTitle.trim()) return setMessage('Please enter a new title.');
     try {
-      const res = await API.post("/beats", { title: newTitle, data: pattern });
-      setMessage("Beat saved as new.");
+      const res = await API.post('/beats', { title: newTitle, data: pattern });
+      setMessage('Beat saved as new.');
       setShowSaveAsNewPopup(false);
-      setTitle(newTitle);              
-      setNewTitle("");               
-      setLocalBeatId(res.data.beat.id); 
+      setTitle(newTitle);
+      setNewTitle('');
+      setLocalBeatId(res.data.beat.id);
     } catch {
-      setMessage("Failed to save as new.");
+      setMessage('Failed to save as new.');
     }
   };
 
   const handleKeyDown = (e) => {
-    if (e.key === "Enter") handleSaveAsNew();
+    if (e.key === 'Enter') handleSaveAsNew();
   };
 
-  const isEditing = beatId || localBeatId; 
+  const isEditing = beatId || localBeatId;
 
   if (loading) return <p>Loading...</p>;
 
@@ -104,7 +100,10 @@ const PatternEditor = () => {
             <button onClick={handleUpdateExisting} className="save-button">
               Update Existing
             </button>
-            <button onClick={() => setShowSaveAsNewPopup(true)} className="save-button secondary">
+            <button
+              onClick={() => setShowSaveAsNewPopup(true)}
+              className="save-button secondary"
+            >
               Save As New
             </button>
           </>
@@ -125,7 +124,10 @@ const PatternEditor = () => {
               <button onClick={handleSaveAsNew} className="confirm-save-button">
                 Confirm Save As New
               </button>
-              <button onClick={() => setShowSaveAsNewPopup(false)} className="cancel-button">
+              <button
+                onClick={() => setShowSaveAsNewPopup(false)}
+                className="cancel-button"
+              >
                 Cancel
               </button>
             </div>
@@ -136,6 +138,4 @@ const PatternEditor = () => {
       </div>
     </div>
   );
-};
-
-export default PatternEditor;
+}

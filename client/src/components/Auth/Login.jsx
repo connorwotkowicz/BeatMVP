@@ -2,8 +2,7 @@ import React, { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
-const BACKEND_URL = process.env.VITE_BACKEND_URL || "http://localhost:3000";
-
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
 
 export default function Login() {
   const { login } = useContext(AuthContext); 
