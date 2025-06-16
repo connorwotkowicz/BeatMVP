@@ -14,7 +14,7 @@
 
 
 
-This project has a Vite version and a Next verison ([Current Next Build](https://beatseq.vercel.app)). 
+This project has a Vite version and a [Next](https://github.com/connorwotkowicz/BeatSeq/tree/next) verison ([Current Next Build](https://beatseq.vercel.app)). 
 
 
 
