@@ -14,7 +14,8 @@
 
 
 
-This project has a Vite version and a Next verison. 
+This project has a Vite version and a Next verison ([Current Next Build](https://beatseq.vercel.app)). 
+
 
 
 
