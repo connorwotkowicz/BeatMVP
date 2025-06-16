@@ -4,7 +4,7 @@ import { createContext, useState, useEffect, useCallback } from "react";
 
 export const AuthContext = createContext();
 
-const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL|| "http://localhost:3001";
+const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL|| "https://localhost:3001";
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
