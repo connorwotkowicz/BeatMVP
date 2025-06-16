@@ -1,5 +1,5 @@
 
-DROP TABLE IF EXISTS patterns CASCADE;
+
 DROP TABLE IF EXISTS beats CASCADE;
 DROP TABLE IF EXISTS users CASCADE;
 
@@ -17,15 +17,6 @@ CREATE TABLE beats (
   user_id UUID REFERENCES users(id) ON DELETE CASCADE, 
   title TEXT NOT NULL,
   audio_url TEXT,
-  data JSONB NOT NULL,
-  created_at TIMESTAMP DEFAULT NOW()
-);
-
-
-CREATE TABLE patterns (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-  user_id UUID REFERENCES users(id) ON DELETE CASCADE,
-  name TEXT NOT NULL,
   data JSONB NOT NULL,
   created_at TIMESTAMP DEFAULT NOW()
 );

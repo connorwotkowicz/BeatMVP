@@ -28,4 +28,6 @@ dist-ssr
 structure.txt
 .vercel
 
-beatseq-key.pem
+beatreq-k.pem
+backend.tar.gz
+update.sh
