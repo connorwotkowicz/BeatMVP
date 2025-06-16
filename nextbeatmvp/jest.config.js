@@ -4,10 +4,13 @@ module.exports = {
   transform: {
     '^.+\\.[jt]sx?$': 'babel-jest',
   },
+  transformIgnorePatterns: [
+    '!<rootDir>/jest.setup.js'
+  ],
   moduleFileExtensions: ['js', 'jsx'],
   testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
   moduleNameMapper: {
-   '^@/(.*)$': '<rootDir>/$1',
+    '^@/(.*)$': '<rootDir>/$1',
     '\\.(scss|css|sass)$': 'identity-obj-proxy'
   }
 };

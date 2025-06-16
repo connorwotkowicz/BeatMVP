@@ -3,22 +3,35 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "devtools": "react-devtools",
+    "test": "jest",
+    "start:dev": "nodemon server/index.js",
     "dev": "next dev",
     "build": "next build",
+    "export": "next build && next export",
     "start": "next start",
-    "lint": "next lint"
+    "init-db": "node server/scripts/initDb.js",
+    "test:next": "cd nextbeatmvp && npx jest",
+    "deploy:prod": "vercel --prod -b main",
+    "deploy:staging": "vercel --target=staging -b develop",
+    "deploy:preview": "vercel --preview"
   },
   "dependencies": {
     "axios": "^1.10.0",
     "bcrypt": "^6.0.0",
+    "buffer": "^6.0.3",
     "lucide-react": "^0.515.0",
     "next": "15.3.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.6.2",
-    "sass": "^1.89.2"
+    "sass": "^1.89.2",
+    "stream-browserify": "^3.0.0",
+    "tone": "^15.1.22",
+    "util": "^0.12.5"
   },
   "devDependencies": {
+    "@babel/core": "^7.27.4",
     "@babel/preset-env": "^7.27.2",
     "@babel/preset-react": "^7.27.1",
     "@eslint/eslintrc": "^3",
@@ -28,6 +41,7 @@
     "babel-jest": "^30.0.0",
     "eslint": "^9",
     "eslint-config-next": "15.3.3",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^30.0.0",
     "jest-environment-jsdom": "^30.0.0",
     "react-devtools": "^6.1.2",

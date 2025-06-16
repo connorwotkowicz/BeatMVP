@@ -28,11 +28,13 @@ const seedUsers = async () => {
         [uuidv4(), user.email, user.username, hashedPassword]
       );
     }
-    console.log('Users seeded successfully');
+    console.log('✅ Users seeded successfully');
   } catch (error) {
-    console.error('Error seeding users:', error);
+    console.error('❌ Error seeding users:', error);
   } finally {
-    db.end();
+    db.end()
+      .then(() => console.log('✅ Pool closed. Seeding complete.'))
+      .catch((err) => console.error('Error closing pool:', err));
   }
 };
 

@@ -5,7 +5,6 @@ import { useParams, useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
 import API from '@/services/api';
 
-// Dynamically import SequencerGrid to prevent SSR issues with Tone.js
 const SequencerGrid = dynamic(
   () => import('@/components/SequencerGrid'),
   { ssr: false, loading: () => <div className="loading">Loading sequencer...</div> }
@@ -22,7 +21,7 @@ export default function PatternEditor() {
   const [newTitle, setNewTitle] = useState('');
   const [localBeatId, setLocalBeatId] = useState(null);
 
-  // Fetch pattern data
+ 
   const fetchPattern = useCallback(async () => {
     if (!beatId) return;
     
@@ -47,7 +46,6 @@ export default function PatternEditor() {
     fetchPattern();
   }, [fetchPattern]);
 
-  // Save operations
   const handleSaveNew = useCallback(async () => {
     if (!title.trim()) {
       return setMessage({ 
@@ -166,7 +164,7 @@ export default function PatternEditor() {
               className="save-button primary"
               disabled={!title.trim()}
             >
-              Save New Pattern
+              Save new pattern
             </button>
           ) : (
             <>
@@ -180,7 +178,7 @@ export default function PatternEditor() {
                 onClick={() => setShowSaveAsNewPopup(true)}
                 className="save-button secondary"
               >
-                Save As New
+                Save as new
               </button>
             </>
           )}
@@ -189,7 +187,7 @@ export default function PatternEditor() {
         {showSaveAsNewPopup && (
           <div className="popup-overlay">
             <div className="popup-content">
-              <h3>Save As New Pattern</h3>
+              <h3>Save as new </h3>
               <input
                 type="text"
                 placeholder="New pattern title"

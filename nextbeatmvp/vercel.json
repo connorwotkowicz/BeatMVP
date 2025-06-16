@@ -7,12 +7,5 @@
       "dest": "/$1",
       "continue": true
     }
-  ],
-  "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "https://your-api.com/api/$1"
-    }
-  ],
-  "cleanUrls": true
+  ]
 }
