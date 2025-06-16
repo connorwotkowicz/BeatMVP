@@ -16,7 +16,7 @@
 
 
 > ### This project has a Vite version and a Next.js version ([branch](https://github.com/connorwotkowicz/BeatSeq/tree/next)). 
-> > ##### [Current Next.js Build](https://beatseq.vercel.app)
+> > ##### [Current Next.js Build/Deploy](https://beatseq.vercel.app)
 
 
 
