@@ -14,7 +14,7 @@
 ![Vercel](https://img.shields.io/badge/Vercel-000?style=for-the-badge&logo=vercel&logoColor=white)
 
 
-
+> #### Frontend is inside of `/nextbeatmvp`
 > ### This project has a Vite version ([branch](https://github.com/connorwotkowicz/BeatSeq/tree/main))  and a Next.js version.
 > > ##### [Current Next.js Build](https://beatseq.vercel.app)
 
