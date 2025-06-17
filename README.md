@@ -19,15 +19,49 @@
 >  README in progress
 
 --- 
-## Overview
+## Tech Stack
 
-- Sequencer grid
-- Real-time audio playback with Tone.js
-- Tempo, volume, and mute controls
-- JWT-based user authentication
-- Pattern saving and loading per user
-- REST API powered by Express and PostgreSQL
-- SASS styling 
+### Frontend
+- Next.js 14  
+- React  
+- JavaScript (ES6+)  
+- SCSS Modules for styling  
+- Context API for global state management  
+
+### Backend
+- Node.js  
+- Express.js  
+- RESTful API architecture  
+- PostgreSQL (via Supabase)  
+- Environment-based configuration with `dotenv`
+
+### Audio Engine
+- Tone.js for Web Audio API-based sequencing  
+- Playback handled via `Tone.Transport`  
+- Custom audio grid with real-time scheduling and visual sync  
+
+### Authentication & Security
+- JSON Web Token (JWT) authentication  
+- Bcrypt for secure password hashing  
+- Helmet for HTTP header protection  
+- CORS for controlled cross-origin access  
+
+### Testing
+- Jest for unit testing  
+- React Testing Library for component behavior  
+- Supertest for endpoint testing  
+
+### Dev Tools & Deployment
+- Vercel for frontend hosting and CI/CD  
+- Amazon EC2 for backend deployment  
+  - Amazon Linux 2023  
+  - Node.js runtime with PM2 process manager  
+  - PostgreSQL client for CLI and scripts  
+- Supabase for managed PostgreSQL database  
+- Axios for API requests  
+- ngrok for local tunnel testing  
+
+---
 
 ---
 
@@ -129,7 +163,6 @@ npm run dev
 ```
 
 
-## Author
 
 ## Author
 
@@ -138,4 +171,3 @@ npm run dev
 - - [LinkedIn](https://www.linkedin.com/in/wotkowicz)
 
 
----
