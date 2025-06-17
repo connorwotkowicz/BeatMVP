@@ -1,5 +1,5 @@
-
-logs
+# Logs
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -7,15 +7,27 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
+# Dependency directories
+node_modules/
+dist/
+dist-ssr/
+
+# Local environment and config
 *.local
+.env
+.vite
 
+# Build and deployment
+.vercel/
+structure.txt
 
+# Shell scripts
+*.sh
+
+# IDEs and editors
 .vscode/*
 !.vscode/extensions.json
-.idea
+.idea/
 .DS_Store
 *.suo
 *.ntvs*
@@ -23,6 +35,14 @@ dist-ssr
 *.sln
 *.sw?
 
-.env
-.vite
-structure.txt
+# Next.js
+.next/
+out/
+
+# Vite
+dist/
+
+
+backend.tar.gz
+beatreq-k.pem
+update.sh
