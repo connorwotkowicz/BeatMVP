@@ -16,7 +16,7 @@
 
 
 > ### This project has a Vite version and a Next.js version ([branch](https://github.com/connorwotkowicz/BeatSeq/tree/next)).
-> Both run seamelessly locally but the deployed site's functionality is still pending 
+> Both run seamlessly locally but the deployed site's functionality is still pending 
 > > ##### [Current Next.js Build/Deploy](https://beatseq.vercel.app)
 
 
