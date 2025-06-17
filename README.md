@@ -1,15 +1,23 @@
-# BeatMVP — Web-Based Beat Sequencer
+# BeatSeq — Web-Based Beat Sequencer
 
-![React](https://img.shields.io/badge/frontend-React-61DAFB?logo=react&logoColor=white)
-![Tone.js](https://img.shields.io/badge/audio-Tone.js-ff7373)
-![Node.js](https://img.shields.io/badge/backend-Node.js-339933?logo=node.js&logoColor=white)
-![Express](https://img.shields.io/badge/server-Express-000000?logo=express&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/database-PostgreSQL-336791?logo=postgresql&logoColor=white)
-![JWT](https://img.shields.io/badge/auth-JWT-yellowgreen)
-![Vite](https://img.shields.io/badge/build-Vite-646CFF?logo=vite&logoColor=white)
-![SCSS](https://img.shields.io/badge/styles-SCSS-CC6699?logo=sass&logoColor=white)
 
-BeatMVP is a simple full-stack web application for building, playing, and saving drum patterns using a basic sequencer grid. It features real-time audio playback and pattern persistence. 
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white)
+![Next.js](https://img.shields.io/badge/Next.js-000?style=for-the-badge&logo=next.js&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![SCSS](https://img.shields.io/badge/SCSS-cc6699?style=for-the-badge&logo=sass&logoColor=white)
+![Tone.js](https://img.shields.io/badge/Tone.js-ff7373?style=for-the-badge)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-000?style=for-the-badge&logo=express&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000?style=for-the-badge&logo=vercel&logoColor=white)
+
+
+
+> ### This project has a Vite version and a Next.js version ([branch](https://github.com/connorwotkowicz/BeatSeq/tree/next)). 
+> > ##### [Current Next.js Build/Deploy](https://beatseq.vercel.app)
+
 
 
 
@@ -129,8 +137,11 @@ npm run dev
 
 ## Author
 
-Connor D. Wotkowicz   
-LinkedIn: [linkedin.com/in/wotkowicz](https://www.linkedin.com/in/wotkowicz)
+## Author
+
+- Connor Wotkowicz
+- - [GitHub](https://github.com/connorwotkowicz)
+- - [LinkedIn](https://www.linkedin.com/in/wotkowicz)
+
 
 ---
-
