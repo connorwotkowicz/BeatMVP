@@ -14,7 +14,7 @@
 ![Vercel](https://img.shields.io/badge/Vercel-000?style=for-the-badge&logo=vercel&logoColor=white)
 
 > ### This project has a Vite version and a Next.js version ([branch](https://github.com/connorwotkowicz/BeatSeq/tree/next)).
-> Both run seamlessly locally but the deployed site's functionality is still pending 
+> Deployed site functionality still pending 
 > > ##### [Current Next.js Build/Deploy](https://beatseq.vercel.app)
 
 
