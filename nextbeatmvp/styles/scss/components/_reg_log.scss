@@ -92,11 +92,14 @@
 }
 
 .logreg-title h2 {
-  font-weight: 400
+  font-weight: 400;
+margin-bottom: 0 !important;
+margin-top: 10px !important
 }
 
 .login-instr h4 {
-  font-weight: 400
+  font-weight: 400;
+  margin-top: 8px !important
 }
 
 
@@ -106,6 +109,7 @@
 .sign-button, .reg-button  {
   padding: 0;
   width: 100;
+  margin-bottom: 10px;
   height: 45px;
   background: rgba(0, 0, 0, 0.835);
   box-shadow: none !important;
@@ -114,6 +118,14 @@
   align-items: center;
 
 }
+
+.sign-button {
+  p {
+    padding: 0 !important;
+    margin: 0 !important
+  }
+}
+
 
 .sign-button,
 .reg-button {

@@ -4,7 +4,7 @@ import { AuthProvider } from '@/context/AuthContext';
 import Navigation from '@/components/Navigation';
 
 export const metadata = {
-  title: 'BeatMVP',
+  title: 'BeatSeq',
   description: 'Sequencer and pattern creator',
 };
 export const viewport = {

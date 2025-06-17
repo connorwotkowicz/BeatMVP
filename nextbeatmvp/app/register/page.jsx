@@ -43,15 +43,10 @@ setTimeout(() => router.push('/dashboard'), 1500);
 
   return (
     <div className="register-page">
-      <div className="logo-wrapper">
-        <Link href="/" className="lognav-logo">
-          BeatMVP
-        </Link>
-      </div>
-
+  
       <div className="register-container">
-        <div className="my-beat">
-          <h3>myBeats</h3>
+        <div className="my-book">
+          <h3>myBeatSeq</h3>
         </div>
 
         <div className="inner-content">
@@ -63,7 +58,7 @@ setTimeout(() => router.push('/dashboard'), 1500);
 
           <div className="login-instr">
             <h4>
-              Enter your email and set a password to create your BeatMVP account.
+              Enter your email and set a password to create your BeatSeq account.
             </h4>
           </div>
 

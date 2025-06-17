@@ -39,7 +39,7 @@ export default function LoginPage() {
     <div className="login-page">
       <div className="login-container">
         <div className="my-book">
-          <h3>myBeats</h3>
+          <h3>myBeatSeq</h3>
         </div>
 
         <div className="inner-content">
@@ -50,7 +50,7 @@ export default function LoginPage() {
 
           <div className="login-instr">
             <h4>
-              Log in to BeatMVP with your email. If you don't have an account,
+              Log in to BeatSeq with your email. If you don't have an account,
               click the link below to create one.
             </h4>
           </div>
@@ -80,7 +80,7 @@ export default function LoginPage() {
         </div>
 
         <div className="login-instr">
-          <h4>New to BeatMVP?</h4>
+          <h4>New to BeatSeq?</h4>
           <div className="sign-up-link">
             <Link href="/register">
               <h4>Sign up</h4>

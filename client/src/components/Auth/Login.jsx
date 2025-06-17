@@ -51,7 +51,7 @@ export default function Login() {
 
           <div className="login-instr">
             <h4>
-              Log in to BeatMVP with your email. If you don't have an account,
+              Log in to BeatSeq with your email. If you don't have an account,
               click the link below to create one.
             </h4>
           </div>

@@ -19,7 +19,7 @@ const MobileNavbar = () => {
   return (
     <nav className="mobile-navbar">
       <div className="navbar-header">
-        <h1 className="logo">BeatMVP</h1>
+        <h1 className="logo">BeatSeq</h1>
         <div className={`hamburger ${isOpen ? "open" : ""}`} onClick={toggleMenu}>
           <div />
           <div />
