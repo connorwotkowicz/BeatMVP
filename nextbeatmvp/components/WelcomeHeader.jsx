@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 
 const messages = [
-  "Welcome to BeatMVP"
+  "Welcome to BeatSeq"
 ];
 
 const WelcomeHeader = () => {
