@@ -14,7 +14,7 @@
 ![Vercel](https://img.shields.io/badge/Vercel-000?style=for-the-badge&logo=vercel&logoColor=white)
 
 > ### This contains both Vite ([branch](https://github.com/connorwotkowicz/BeatSeq/tree/main)) and Next.js builds.
-> The Next.js model is deployed and full functionality is still pending
+> The Next.js model is deployed. Full functionality is still pending
 > > ##### [Current Build/Deploy](https://beatseq.vercel.app)
 >  README in progress
 
