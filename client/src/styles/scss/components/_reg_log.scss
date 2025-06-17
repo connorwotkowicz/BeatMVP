@@ -1,20 +1,18 @@
-
 .login-page,
 .register-page {
   display: flex;
   justify-content: top;
-  
+
   align-items: center;
   flex-direction: column;
   min-height: 100vh;
   padding-top: 40px;
   background-color: var(--bg-color);
-   background: var(--card-bg);
+  background: var(--card-bg);
   color: var(--text-color);
   background-size: cover;
   background-position: center;
 }
-
 
 .login-container,
 .register-container {
@@ -36,10 +34,6 @@
   transition: all 0.3s ease-in-out;
 }
 
-
-
-
-
 .login-container input,
 .register-container input {
   width: 100%;
@@ -51,7 +45,11 @@
   color: var(--text-color);
   margin-bottom: 16px;
   outline: none;
-  transition: border 0.2s ease, background 0.2s ease;
+  transition:
+   
+    border 0.2s ease,
+   
+    background 0.2s ease;
 }
 
 .login-container input:focus,
@@ -60,13 +58,11 @@
   background: rgba(255, 255, 255, 0.3);
 }
 
-
 .login-container input::placeholder,
 .register-container input::placeholder {
   color: var(--text-color);
   opacity: 0.6;
 }
-
 
 @keyframes fade_slide {
   to {
@@ -84,7 +80,6 @@
   animation: dropdownFadeIn 0.3s ease forwards;
 }
 
-
 .my-book h3 {
   font-weight: 300;
   padding: none;
@@ -92,18 +87,41 @@
 }
 
 .logreg-title h2 {
-  font-weight: 400
+  font-weight: 400;
+  margin-bottom: 0 !important;
+  margin-top: 10px !important;
+  font-weight: 400;
+  margin-bottom: 0 !important;
+  margin-top: 10px !important;
 }
 
 .login-instr h4 {
-  font-weight: 400
+  font-weight: 400;
+  margin-top: 8px !important;
 }
 
+.sign-button {
+  p {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}
 
+.sign-button,
+.reg-button {
+  font-weight: 400;
+  margin-top: 8px !important;
+}
 
+.sign-button {
+  p {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}
 
-
-.sign-button, .reg-button  {
+.sign-button,
+.reg-button {
   padding: 0;
   width: 100;
   height: 45px;
@@ -112,7 +130,6 @@
   border: none;
   cursor: pointer;
   align-items: center;
-
 }
 
 .sign-button,
@@ -133,14 +150,8 @@
   left: -150%;
   width: 300%;
   height: 100%;
-  background: linear-gradient(
-    120deg,
-    transparent 30%,
-    #ff3cac 45%,
-    #784ba0 50%,
-    #2b86c5 55%,
-    transparent 70%
-  );
+  background: linear-gradient(120deg, transparent 30%, #ff3cac 45%, #784ba0 50%, #2b86c5 55%, transparent 70%);
+  background: linear-gradient(120deg, transparent 30%, #ff3cac 45%, #784ba0 50%, #2b86c5 55%, transparent 70%);
   opacity: 0;
   transition: none;
   pointer-events: none;
@@ -150,5 +161,6 @@
 .sign-button:hover::before,
 .reg-button:hover::before {
   animation: shiny-wipe 1.2s ease-out forwards;
-  opacity: 1;
+opacity: 1;
 }
+

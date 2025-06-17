@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
-const BACKEND_URL = process.env.VITE_BACKEND_URL || "http://localhost:3000";
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
 
 
 export default function RegisterForm() {
@@ -42,15 +42,10 @@ export default function RegisterForm() {
 
   return (
     <div className="register-page">
-      <div className="logo-wrapper">
-        <Link to="/" className="lognav-logo">
-          BeatMVP
-        </Link>
-      </div>
-
+ 
       <div className="register-container">
-        <div className="my-beat">
-          <h3>myBeats</h3>
+        <div className="my-book">
+          <h3>myBeatSeq</h3>
         </div>
 
         <div className="inner-content">
@@ -61,7 +56,7 @@ export default function RegisterForm() {
 
           <div className="login-instr">
             <h4>
-              Enter your email and set a password to create your BeatMVP account.
+              Enter your email and set a password to create your BeatSeq account.
             </h4>
           </div>
 

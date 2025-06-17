@@ -2,8 +2,7 @@ import { createContext, useState, useEffect } from "react";
 
 export const AuthContext = createContext();
 
-const BACKEND_URL =
-  process.env.VITE_BACKEND_URL || "http://localhost:3000";
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);

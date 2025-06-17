@@ -35,7 +35,7 @@ const Navigation = () => {
       <div className="nav-container">
         <div className="nav-left">
           <Link to="/" className="lognav-logo">
-            BeatMVP
+            BeatSeq
           </Link>
         </div>
 

@@ -2,8 +2,7 @@ import React, { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
-const BACKEND_URL = process.env.VITE_BACKEND_URL || "http://localhost:3000";
-
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
 
 export default function Login() {
   const { login } = useContext(AuthContext); 
@@ -41,7 +40,7 @@ export default function Login() {
   
       <div className="login-container">
         <div className="my-book">
-          <h3>myBeats</h3>
+          <h3>myBeatSeq</h3>
         </div>
 
         <div className="inner-content">
@@ -52,7 +51,7 @@ export default function Login() {
 
           <div className="login-instr">
             <h4>
-              Log in to BeatMVP with your email. If you don't have an account,
+              Log in to BeatSeq with your email. If you don't have an account,
               click the link below to create one.
             </h4>
           </div>
@@ -82,7 +81,7 @@ export default function Login() {
         </div>
 
         <div className="login-instr">
-          <h4>New to BeatMVP?</h4>
+          <h4>New to BeatSeq?</h4>
           <div className="sign-up-link">
             <Link to="/register">
               <h4>Sign up</h4>
