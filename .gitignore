@@ -47,6 +47,10 @@ backend.tar.gz
 beatreq-k.pem
 update.sh
 
-App.css
-nextbeatmvp
+
 planREADME.md
+css/App.css
+
+
+client
+jest.config.js
