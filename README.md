@@ -13,26 +13,55 @@
 ![JWT](https://img.shields.io/badge/JWT-000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Vercel-000?style=for-the-badge&logo=vercel&logoColor=white)
 
-> ### This project has a Vite version ([branch](https://github.com/connorwotkowicz/BeatSeq/tree/main))  and a Next.js version.
->  Both run seamlessly locally but the deployed site's functionality is still pending 
->  ##### [Current Next.js Build](https://beatseq.vercel.app)
+> ### This contains both Vite ([branch](https://github.com/connorwotkowicz/BeatSeq/tree/main)) and Next.js builds.
+> The Next.js model is deployed. Full functionality is still pending
+> > ##### [Current Build/Deploy](https://beatseq.vercel.app)
+>  README in progress
 
+--- 
+## Tech Stack
 
+### Frontend
+- Next.js 14  
+- React  
+- JavaScript (ES6+)  
+- SCSS Modules for styling  
+- Context API for global state management  
 
+### Backend
+- Node.js  
+- Express.js  
+- RESTful API architecture  
+- PostgreSQL (via Supabase)  
+- Environment-based configuration with `dotenv`
 
+### Audio Engine
+- Tone.js for Web Audio API-based sequencing  
+- Playback handled via `Tone.Transport`  
+- Custom audio grid with real-time scheduling and visual sync  
+
+### Authentication & Security
+- JSON Web Token (JWT) authentication  
+- Bcrypt for secure password hashing  
+- Helmet for HTTP header protection  
+- CORS for controlled cross-origin access  
+
+### Testing
+- Jest for unit testing  
+- React Testing Library for component behavior  
+- Supertest for endpoint testing  
+
+### Dev Tools & Deployment
+- Vercel for frontend hosting and CI/CD  
+- Amazon EC2 for backend deployment  
+  - Amazon Linux 2023  
+  - Node.js runtime with PM2 process manager  
+  - PostgreSQL client for CLI and scripts  
+- Supabase for managed PostgreSQL database  
+- Axios for API requests  
+- ngrok for local tunnel testing  
 
 ---
-> #### README also in progress, to be updated soon
-
-## Overview
-
-- Sequencer grid
-- Real-time audio playback with Tone.js
-- Tempo, volume, and mute controls
-- JWT-based user authentication
-- Pattern saving and loading per user
-- REST API powered by Express and PostgreSQL
-- SASS styling 
 
 ---
 
@@ -134,7 +163,6 @@ npm run dev
 ```
 
 
-## Author
 
 ## Author
 
@@ -143,4 +171,3 @@ npm run dev
 - - [LinkedIn](https://www.linkedin.com/in/wotkowicz)
 
 
----
