@@ -34,6 +34,7 @@ update.sh
 
 
 planREADME.md
+<<<<<<< Updated upstream
 
 jest.config.json
 
@@ -42,6 +43,8 @@ essential-files.tar.gz
 .github/workflows/deploy.yml
 
 css/App.css
+=======
+>>>>>>> Stashed changes
 css/App.css
 
 
