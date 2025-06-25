@@ -17,6 +17,7 @@
     "deploy:preview": "vercel --preview"
   },
   "dependencies": {
+    "animejs": "^4.0.2",
     "axios": "^1.10.0",
     "bcrypt": "^6.0.0",
     "buffer": "^6.0.3",

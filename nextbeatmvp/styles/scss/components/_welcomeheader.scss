@@ -1,63 +1,74 @@
-.welcome-wrapper {
+.welcome {
+  /* gradient + sizing we already have … */
+  background: var(--ni-bg);
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  /* 🔑 CENTRING 🔑 */
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: breathe 5s cubic-bezier(0.42, 0, 0.58, 1) infinite;
-}
-
-.welcome-header {
-  font-size: 3rem;
-  margin-top: 6em;
-  text-align: center;
-  font-weight: 400;
-  color: transparent;
-  background: linear-gradient(70deg, #a4d3ff, #a421b0, #6dd5ed, #003b5c);
-  background-size: 300% auto;
-  background-clip: text;
-  -webkit-background-clip: text;
-
-  animation: shimmer 6.5s linear infinite;
-
-  transition: opacity 0.4s ease-in-out;
-  line-height: 1.3;
-  padding-bottom: 0.25rem;
-  transform: none;
-  transform-origin: center;
-  -webkit-font-smoothing: antialiased;
-  overflow: visible;
-}
-
-.fade-in {
-  opacity: 1;
-}
-
-.fade-out {
-  opacity: 0;
-}
-
-
-// Breathing / pulse effect
-@keyframes breathe {
-  0% {
-    transform: scale(0.97);
-    opacity: 0.85;
+  /* 🟪 gradient #1  ─ blue plume on left */
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(950px 650px at 18% 72%, #0c3c54 0%, /* deep teal */ #0c3c54 35%, transparent 75%);
+    opacity: 0.9;
+    pointer-events: none;
   }
-  50% {
-    transform: scale(1.03);
+
+  /* 🟦 gradient #2  ─ violet plume on right */
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(1100px 750px at 82% 28%, #2c0f46 0%, /* aubergine */ #2c0f46 40%, transparent 78%);
+    opacity: 0.9;
+    pointer-events: none;
+  }
+}
+
+/* optional: faint orange focus glow */
+.welcome > .focus-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(650px circle at 50% 58%, rgba(255, 122, 0, 0.18) 0%, rgba(255, 122, 0, 0) 70%);
+  filter: blur(120px);
+  pointer-events: none;
+}
+
+/* Animations */
+@keyframes zoomFade {
+  0% {
+    transform: scale(0.98);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
     opacity: 1;
   }
-  100% {
-    transform: scale(0.97);
-    opacity: 0.85;
-  }
 }
 
-// Loading shimmer effect
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
+/* Centered “hardware panel” */
+.welcome__panel {
+  background: var(--ni-panel);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 4rem 5rem;
+  text-align: center;
+  border-radius: 12px;
+  width: clamp(320px, 60vw, 680px);
+  position: relative;
+
+  /* faint vertical brushed-metal texture */
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(90deg, transparent 0, rgba(255, 255, 255, 0.02) 1px, transparent 2px);
+    pointer-events: none;
+    border-radius: inherit;
   }
 }

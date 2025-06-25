@@ -26,3 +26,21 @@
       background: var(--bg-color);
       height: 100vh
     }
+
+
+
+
+    :root {
+
+  --ni-bg: #181818;
+  --ni-panel: #1e1e1e;
+  --ni-surface: #252525;
+  --ni-text: #e2e2e2;
+  --ni-accent: #ff7a00;
+
+
+  --bg-color: var(--ni-bg);
+  --card-bg: var(--ni-panel);
+  --text-color: var(--ni-text);
+  --primary-accent: var(--ni-accent);
+}
